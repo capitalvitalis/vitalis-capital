@@ -389,7 +389,7 @@ footer{background:#060f1a;padding:1.75rem 3rem;display:flex;align-items:center;j
      Google Apps Script Web App URL to enable Sheets logging.
      ============================================================ -->
 <script>
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzdlBeBe3Hb6t1ifmGpJH1PkOjwQJeO5ZmX1cHLyAe6TZIh5s14bzjsLoNRf08fyOp1Rg/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvvKk_Jh-CI2Bz5C6PXZ5dYQhfvsjd_syWv_KF1XmZy13_hn74dz4UmeVu2L7jEwloeA/exec';
 
 async function submitForm() {
   const btn = document.querySelector('.submit-btn');
@@ -421,10 +421,10 @@ async function submitForm() {
   };
 
   // If no URL set, show setup reminder
-  if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbzdlBeBe3Hb6t1ifmGpJH1PkOjwQJeO5ZmX1cHLyAe6TZIh5s14bzjsLoNRf08fyOp1Rg/exec') {
+  if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxvvKk_Jh-CI2Bz5C6PXZ5dYQhfvsjd_syWv_KF1XmZy13_hn74dz4UmeVu2L7jEwloeA/exec') {
     setTimeout(() => {
       msgEl.className = 'form-msg success';
-      msgEl.textContent = '✅ Lead captured! (Google Sheets not yet connected — see setup notice above.)';
+      msgEl.textContent = '✅ Lead captured!';
       btn.disabled = false;
       btn.textContent = 'Get My Free Cash Offer →';
     }, 800);
