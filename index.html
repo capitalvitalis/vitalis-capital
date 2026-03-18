@@ -1,482 +1,494 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
-    span.s1 {font: 12.0px Helvetica}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vitalis Capital Group — We Buy Houses South Shore</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0b1929;
+  --navy2:#112236;
+  --navy3:#163050;
+  --gold:#c9a84c;
+  --gold2:#e2c475;
+  --gold-pale:#fef3d0;
+  --orange:#e85d04;
+  --white:#ffffff;
+  --gray:#8a9ab5;
+  --light:#f4f6fa;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.8rem 2.5rem;
+  background:rgba(11,25,41,0.97);
+  border-bottom:2px solid var(--gold);
+}
+.logo-wrap{display:flex;align-items:center;gap:0.9rem;}
+.logo-wrap img{height:52px;width:auto;}
+.logo-text{line-height:1.15;}
+.logo-mark{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:0.06em;color:var(--gold);}
+.logo-sub{font-size:0.57rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gray);font-weight:500;}
+.nav-cta{
+  background:var(--orange);color:var(--white);
+  padding:0.6rem 1.6rem;font-size:0.82rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  border:none;cursor:pointer;border-radius:1px;
+  text-decoration:none;transition:background 0.2s;
+  font-family:'Barlow',sans-serif;
+}
+.nav-cta:hover{background:#c94e00;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:6rem 0 0;
+  position:relative;overflow:hidden;
+}
+.hero-left{padding:3rem 2rem 3rem 3rem;position:relative;z-index:2;}
+.hero-right{
+  background:var(--navy2);min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:3rem 3rem 3rem 2.5rem;position:relative;
+}
+.hero-right::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);}
+.tag{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--orange);color:var(--white);
+  padding:0.35rem 0.9rem;font-size:0.72rem;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;
+  margin-bottom:1.5rem;border-radius:1px;
+}
+.tag::before{content:'●';font-size:0.5rem;}
+h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.5rem,7vw,6rem);
+  line-height:0.95;letter-spacing:0.03em;margin-bottom:1.5rem;
+}
+h1 span{color:var(--gold);}
+.hero-desc{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.6);max-width:440px;margin-bottom:2rem;font-weight:300;}
+.offer-pills{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.pill{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:0.4rem 0.9rem;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;border-radius:1px;}
+
+/* ── LEAD FORM ── */
+.form-headline{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem;line-height:1.1;}
+.form-sub{font-size:0.82rem;color:var(--gray);margin-bottom:1.5rem;font-weight:300;}
+.lead-form{display:flex;flex-direction:column;gap:0.85rem;}
+.fgroup{display:flex;flex-direction:column;gap:0.3rem;}
+.fgroup label{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);font-weight:500;}
+.fgroup input,.fgroup select,.fgroup textarea{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-bottom:2px solid rgba(201,168,76,0.4);
+  color:var(--white);padding:0.7rem 0.9rem;font-size:0.9rem;font-family:'Barlow',sans-serif;
+  outline:none;transition:border-color 0.2s;border-radius:1px;width:100%;
+}
+.fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus{border-color:var(--gold);border-bottom-color:var(--gold2);background:rgba(201,168,76,0.06);}
+.fgroup select option{background:var(--navy2);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}
+.submit-btn{
+  background:var(--gold);color:var(--navy);padding:1rem;font-size:1rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;border-radius:1px;
+  font-family:'Barlow Condensed',sans-serif;transition:background 0.2s,opacity 0.2s;margin-top:0.3rem;
+}
+.submit-btn:hover{background:var(--gold2);}
+.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
+.form-trust{display:flex;align-items:center;gap:0.5rem;font-size:0.72rem;color:var(--gray);margin-top:0.5rem;}
+.contact-quick{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.75rem;}
+.cq-item{color:var(--gold2);font-size:0.82rem;text-decoration:none;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;}
+.cq-item:hover{color:var(--white);}
+.form-trust::before{content:'🔒';font-size:0.75rem;}
+
+/* ── SUCCESS / ERROR MESSAGES ── */
+.form-msg{display:none;padding:1rem;border-radius:2px;font-size:0.9rem;font-weight:500;text-align:center;margin-top:0.5rem;}
+.form-msg.success{display:block;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);color:#4ade80;}
+.form-msg.error{display:block;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#f87171;}
+
+/* ── STATS ── */
+.stats{background:var(--gold);color:var(--navy);padding:3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;}
+.stat-box{text-align:center;padding:1.5rem 1rem;background:var(--gold);}
+.stat-box:nth-child(even){background:var(--gold2);}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;letter-spacing:0.04em;line-height:1;}
+.stat-l{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.65;margin-top:0.25rem;}
+
+/* ── PROCESS ── */
+.process{background:var(--light);color:var(--navy);padding:5rem 3rem;}
+.section-tag{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:0.8rem;}
+.section-tag::before{content:'';display:block;width:24px;height:2px;background:var(--orange);}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spacing:0.04em;line-height:1.05;margin-bottom:0.5rem;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;border-top:3px solid var(--navy);}
+.process-step{padding:2rem 1.5rem 2rem 0;border-right:1px solid rgba(11,25,41,0.12);}
+.process-step:last-child{border-right:none;padding-right:0;}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--gold);line-height:1;margin-bottom:0.5rem;opacity:0.6;}
+.step-title{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;}
+.step-desc{font-size:0.85rem;line-height:1.7;color:#4a5a70;font-weight:300;}
+
+/* ── WHY SELL ── */
+.why{background:var(--navy2);padding:5rem 3rem;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.why-list{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
+.why-item{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:rgba(255,255,255,0.03);border-left:3px solid var(--gold);}
+.why-check{color:var(--gold);font-size:1.1rem;margin-top:1px;flex-shrink:0;}
+.why-item h4{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:0.25rem;}
+.why-item p{font-size:0.82rem;color:var(--gray);line-height:1.6;font-weight:300;}
+.vs-card{background:var(--navy3);border:1px solid rgba(201,168,76,0.2);border-top:4px solid var(--gold);padding:2rem;}
+.vs-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:1.5rem;}
+.vs-row{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.85rem;}
+.vs-row:last-child{border-bottom:none;}
+.vs-label{color:var(--gray);font-weight:300;}
+.vs-us{color:var(--gold2);font-weight:600;}
+.vs-them{color:rgba(255,255,255,0.25);text-decoration:line-through;font-size:0.78rem;}
+
+/* ── TESTIMONIALS ── */
+.testimonials{background:var(--navy);padding:5rem 3rem;}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.tcard{background:var(--navy2);padding:1.75rem;border-bottom:3px solid var(--gold);position:relative;}
+.tcard::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--gold);opacity:0.15;position:absolute;top:-0.5rem;left:1rem;line-height:1;}
+.ttext{font-size:0.9rem;line-height:1.75;color:rgba(255,255,255,0.7);font-weight:300;margin-bottom:1.2rem;font-style:italic;}
+.tauthor{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);}
+.tloc{font-size:0.75rem;color:var(--gray);margin-top:2px;}
+
+/* ── BOTTOM CTA ── */
+.bottom-cta{background:var(--orange);padding:4rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.bcta-text h2{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.04em;color:var(--white);line-height:1.05;}
+.bcta-text p{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:300;margin-top:0.4rem;}
+.bcta-btn{background:var(--white);color:var(--orange);padding:1rem 2.5rem;font-size:1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:none;cursor:pointer;border-radius:1px;font-family:'Barlow Condensed',sans-serif;white-space:nowrap;text-decoration:none;display:inline-block;transition:background 0.2s;}
+.bcta-btn:hover{background:var(--gold-pale);}
+
+/* ── FOOTER ── */
+footer{background:#060f1a;padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.footer-logo{display:flex;align-items:center;gap:0.75rem;}
+.footer-logo img{height:40px;width:auto;opacity:0.85;}
+.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.25);}
+.footer-disclaimer{font-size:0.68rem;color:rgba(255,255,255,0.18);max-width:500px;line-height:1.5;}
+
+/* ── GOOGLE SHEETS SETUP NOTICE ── */
+.setup-notice{background:rgba(201,168,76,0.1);border:1px dashed rgba(201,168,76,0.4);padding:1.2rem 1.5rem;margin:1rem 0;border-radius:2px;font-size:0.78rem;color:var(--gold2);line-height:1.6;}
+.setup-notice strong{color:var(--gold);display:block;margin-bottom:0.3rem;}
+.setup-notice code{background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:2px;font-size:0.72rem;word-break:break-all;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{min-height:auto;padding:2.5rem 2rem;}
+  .hero-right::before{display:none;}
+  .process-grid{grid-template-columns:1fr 1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .tgrid{grid-template-columns:1fr;}
+  .bottom-cta{flex-direction:column;text-align:center;}
+  nav{padding:0.9rem 1.5rem;}
+  .process,.why,.testimonials,.bottom-cta{padding:3.5rem 1.5rem;}
+}
+@media(max-width:500px){
+  .frow{grid-template-columns:1fr;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .process-grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"/&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
-<p class="p1">&lt;title&gt;Vitalis Capital Group — We Buy Houses South Shore&lt;/title&gt;</p>
-<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Barlow:wght@300;400;500;600&amp;family=Barlow+Condensed:wght@600;700&amp;display=swap" rel="stylesheet"/&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1">*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}</p>
-<p class="p1">:root{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--navy:#0b1929;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--navy2:#112236;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--navy3:#163050;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--gold:#c9a84c;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--gold2:#e2c475;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--gold-pale:#fef3d0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--orange:#e85d04;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--white:#ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--gray:#8a9ab5;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--light:#f4f6fa;</p>
-<p class="p1">}</p>
-<p class="p1">html{scroll-behavior:smooth;}</p>
-<p class="p1">body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── NAV ── */</p>
-<p class="p1">nav{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>position:fixed;top:0;left:0;right:0;z-index:200;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display:flex;align-items:center;justify-content:space-between;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding:0.8rem 2.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background:rgba(11,25,41,0.97);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>border-bottom:2px solid var(--gold);</p>
-<p class="p1">}</p>
-<p class="p1">.logo-wrap{display:flex;align-items:center;gap:0.9rem;}</p>
-<p class="p1">.logo-wrap img{height:52px;width:auto;}</p>
-<p class="p1">.logo-text{line-height:1.15;}</p>
-<p class="p1">.logo-mark{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:0.06em;color:var(--gold);}</p>
-<p class="p1">.logo-sub{font-size:0.57rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gray);font-weight:500;}</p>
-<p class="p1">.nav-cta{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background:var(--orange);color:var(--white);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding:0.6rem 1.6rem;font-size:0.82rem;font-weight:600;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing:0.08em;text-transform:uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>border:none;cursor:pointer;border-radius:1px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>text-decoration:none;transition:background 0.2s;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-family:'Barlow',sans-serif;</p>
-<p class="p1">}</p>
-<p class="p1">.nav-cta:hover{background:#c94e00;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── HERO ── */</p>
-<p class="p1">.hero{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>min-height:100vh;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display:grid;grid-template-columns:1fr 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>align-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding:6rem 0 0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>position:relative;overflow:hidden;</p>
-<p class="p1">}</p>
-<p class="p1">.hero-left{padding:3rem 2rem 3rem 3rem;position:relative;z-index:2;}</p>
-<p class="p1">.hero-right{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background:var(--navy2);min-height:100vh;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display:flex;flex-direction:column;justify-content:center;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding:3rem 3rem 3rem 2.5rem;position:relative;</p>
-<p class="p1">}</p>
-<p class="p1">.hero-right::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);}</p>
-<p class="p1">.tag{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display:inline-flex;align-items:center;gap:0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background:var(--orange);color:var(--white);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding:0.35rem 0.9rem;font-size:0.72rem;font-weight:600;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing:0.14em;text-transform:uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom:1.5rem;border-radius:1px;</p>
-<p class="p1">}</p>
-<p class="p1">.tag::before{content:'●';font-size:0.5rem;}</p>
-<p class="p1">h1{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-family:'Bebas Neue',sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-size:clamp(3.5rem,7vw,6rem);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>line-height:0.95;letter-spacing:0.03em;margin-bottom:1.5rem;</p>
-<p class="p1">}</p>
-<p class="p1">h1 span{color:var(--gold);}</p>
-<p class="p1">.hero-desc{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.6);max-width:440px;margin-bottom:2rem;font-weight:300;}</p>
-<p class="p1">.offer-pills{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:2.5rem;}</p>
-<p class="p1">.pill{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:0.4rem 0.9rem;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;border-radius:1px;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── LEAD FORM ── */</p>
-<p class="p1">.form-headline{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem;line-height:1.1;}</p>
-<p class="p1">.form-sub{font-size:0.82rem;color:var(--gray);margin-bottom:1.5rem;font-weight:300;}</p>
-<p class="p1">.lead-form{display:flex;flex-direction:column;gap:0.85rem;}</p>
-<p class="p1">.fgroup{display:flex;flex-direction:column;gap:0.3rem;}</p>
-<p class="p1">.fgroup label{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);font-weight:500;}</p>
-<p class="p1">.fgroup input,.fgroup select,.fgroup textarea{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-bottom:2px solid rgba(201,168,76,0.4);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color:var(--white);padding:0.7rem 0.9rem;font-size:0.9rem;font-family:'Barlow',sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>outline:none;transition:border-color 0.2s;border-radius:1px;width:100%;</p>
-<p class="p1">}</p>
-<p class="p1">.fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus{border-color:var(--gold);border-bottom-color:var(--gold2);background:rgba(201,168,76,0.06);}</p>
-<p class="p1">.fgroup select option{background:var(--navy2);}</p>
-<p class="p1">.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}</p>
-<p class="p1">.submit-btn{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background:var(--gold);color:var(--navy);padding:1rem;font-size:1rem;font-weight:700;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;border-radius:1px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-family:'Barlow Condensed',sans-serif;transition:background 0.2s,opacity 0.2s;margin-top:0.3rem;</p>
-<p class="p1">}</p>
-<p class="p1">.submit-btn:hover{background:var(--gold2);}</p>
-<p class="p1">.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}</p>
-<p class="p1">.form-trust{display:flex;align-items:center;gap:0.5rem;font-size:0.72rem;color:var(--gray);margin-top:0.5rem;}</p>
-<p class="p1">.contact-quick{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.75rem;}</p>
-<p class="p1">.cq-item{color:var(--gold2);font-size:0.82rem;text-decoration:none;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;}</p>
-<p class="p1">.cq-item:hover{color:var(--white);}</p>
-<p class="p1">.form-trust::before{content:'🔒';font-size:0.75rem;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── SUCCESS / ERROR MESSAGES ── */</p>
-<p class="p1">.form-msg{display:none;padding:1rem;border-radius:2px;font-size:0.9rem;font-weight:500;text-align:center;margin-top:0.5rem;}</p>
-<p class="p1">.form-msg.success{display:block;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);color:#4ade80;}</p>
-<p class="p1">.form-msg.error{display:block;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#f87171;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── STATS ── */</p>
-<p class="p1">.stats{background:var(--gold);color:var(--navy);padding:3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;}</p>
-<p class="p1">.stat-box{text-align:center;padding:1.5rem 1rem;background:var(--gold);}</p>
-<p class="p1">.stat-box:nth-child(even){background:var(--gold2);}</p>
-<p class="p1">.stat-n{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;letter-spacing:0.04em;line-height:1;}</p>
-<p class="p1">.stat-l{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.65;margin-top:0.25rem;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── PROCESS ── */</p>
-<p class="p1">.process{background:var(--light);color:var(--navy);padding:5rem 3rem;}</p>
-<p class="p1">.section-tag{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:0.8rem;}</p>
-<p class="p1">.section-tag::before{content:'';display:block;width:24px;height:2px;background:var(--orange);}</p>
-<p class="p1">h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spacing:0.04em;line-height:1.05;margin-bottom:0.5rem;}</p>
-<p class="p1">.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;border-top:3px solid var(--navy);}</p>
-<p class="p1">.process-step{padding:2rem 1.5rem 2rem 0;border-right:1px solid rgba(11,25,41,0.12);}</p>
-<p class="p1">.process-step:last-child{border-right:none;padding-right:0;}</p>
-<p class="p1">.step-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--gold);line-height:1;margin-bottom:0.5rem;opacity:0.6;}</p>
-<p class="p1">.step-title{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;}</p>
-<p class="p1">.step-desc{font-size:0.85rem;line-height:1.7;color:#4a5a70;font-weight:300;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── WHY SELL ── */</p>
-<p class="p1">.why{background:var(--navy2);padding:5rem 3rem;}</p>
-<p class="p1">.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}</p>
-<p class="p1">.why-list{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}</p>
-<p class="p1">.why-item{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:rgba(255,255,255,0.03);border-left:3px solid var(--gold);}</p>
-<p class="p1">.why-check{color:var(--gold);font-size:1.1rem;margin-top:1px;flex-shrink:0;}</p>
-<p class="p1">.why-item h4{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:0.25rem;}</p>
-<p class="p1">.why-item p{font-size:0.82rem;color:var(--gray);line-height:1.6;font-weight:300;}</p>
-<p class="p1">.vs-card{background:var(--navy3);border:1px solid rgba(201,168,76,0.2);border-top:4px solid var(--gold);padding:2rem;}</p>
-<p class="p1">.vs-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:1.5rem;}</p>
-<p class="p1">.vs-row{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.85rem;}</p>
-<p class="p1">.vs-row:last-child{border-bottom:none;}</p>
-<p class="p1">.vs-label{color:var(--gray);font-weight:300;}</p>
-<p class="p1">.vs-us{color:var(--gold2);font-weight:600;}</p>
-<p class="p1">.vs-them{color:rgba(255,255,255,0.25);text-decoration:line-through;font-size:0.78rem;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── TESTIMONIALS ── */</p>
-<p class="p1">.testimonials{background:var(--navy);padding:5rem 3rem;}</p>
-<p class="p1">.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}</p>
-<p class="p1">.tcard{background:var(--navy2);padding:1.75rem;border-bottom:3px solid var(--gold);position:relative;}</p>
-<p class="p1">.tcard::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--gold);opacity:0.15;position:absolute;top:-0.5rem;left:1rem;line-height:1;}</p>
-<p class="p1">.ttext{font-size:0.9rem;line-height:1.75;color:rgba(255,255,255,0.7);font-weight:300;margin-bottom:1.2rem;font-style:italic;}</p>
-<p class="p1">.tauthor{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);}</p>
-<p class="p1">.tloc{font-size:0.75rem;color:var(--gray);margin-top:2px;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── BOTTOM CTA ── */</p>
-<p class="p1">.bottom-cta{background:var(--orange);padding:4rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}</p>
-<p class="p1">.bcta-text h2{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.04em;color:var(--white);line-height:1.05;}</p>
-<p class="p1">.bcta-text p{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:300;margin-top:0.4rem;}</p>
-<p class="p1">.bcta-btn{background:var(--white);color:var(--orange);padding:1rem 2.5rem;font-size:1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:none;cursor:pointer;border-radius:1px;font-family:'Barlow Condensed',sans-serif;white-space:nowrap;text-decoration:none;display:inline-block;transition:background 0.2s;}</p>
-<p class="p1">.bcta-btn:hover{background:var(--gold-pale);}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── FOOTER ── */</p>
-<p class="p1">footer{background:#060f1a;padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}</p>
-<p class="p1">.footer-logo{display:flex;align-items:center;gap:0.75rem;}</p>
-<p class="p1">.footer-logo img{height:40px;width:auto;opacity:0.85;}</p>
-<p class="p1">.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.25);}</p>
-<p class="p1">.footer-disclaimer{font-size:0.68rem;color:rgba(255,255,255,0.18);max-width:500px;line-height:1.5;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── GOOGLE SHEETS SETUP NOTICE ── */</p>
-<p class="p1">.setup-notice{background:rgba(201,168,76,0.1);border:1px dashed rgba(201,168,76,0.4);padding:1.2rem 1.5rem;margin:1rem 0;border-radius:2px;font-size:0.78rem;color:var(--gold2);line-height:1.6;}</p>
-<p class="p1">.setup-notice strong{color:var(--gold);display:block;margin-bottom:0.3rem;}</p>
-<p class="p1">.setup-notice code{background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:2px;font-size:0.72rem;word-break:break-all;}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ── RESPONSIVE ── */</p>
-<p class="p1">@media(max-width:900px){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.hero{grid-template-columns:1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.hero-right{min-height:auto;padding:2.5rem 2rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.hero-right::before{display:none;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.process-grid{grid-template-columns:1fr 1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.why-grid{grid-template-columns:1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.stats{grid-template-columns:1fr 1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.tgrid{grid-template-columns:1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.bottom-cta{flex-direction:column;text-align:center;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>nav{padding:0.9rem 1.5rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.process,.why,.testimonials,.bottom-cta{padding:3.5rem 1.5rem;}</p>
-<p class="p1">}</p>
-<p class="p1">@media(max-width:500px){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.frow{grid-template-columns:1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.stats{grid-template-columns:1fr 1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.process-grid{grid-template-columns:1fr;}</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- NAV --&gt;</p>
-<p class="p1">&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="logo-wrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;img src="Vitalis_Capital.png" alt="Vitalis Capital Group Logo" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo-text"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="logo-mark"&gt;Vitalis Capital Group&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="logo-sub"&gt;South Shore Real Estate&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#lead-form" class="nav-cta"&gt;Get My Cash Offer&lt;/a&gt;</p>
-<p class="p1">&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- HERO --&gt;</p>
-<p class="p1">&lt;section class="hero" id="home"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tag"&gt;South Shore's #1 Cash Home Buyers&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;We Buy&lt;br/&gt;&lt;span&gt;Houses&lt;/span&gt;&lt;br/&gt;Fast &amp;amp; Fair&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hero-desc"&gt;Selling your home shouldn't be stressful. We make all-cash offers on South Shore homes — no repairs, no agents, no waiting. Close in as little as 7 days.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="offer-pills"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="pill"&gt;✓ No Repairs Needed&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="pill"&gt;✓ No Agent Fees&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="pill"&gt;✓ Close in 7 Days&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="pill"&gt;✓ Any Condition&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- LEAD FORM --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-right" id="lead-form"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="form-headline"&gt;Get Your Free&lt;br/&gt;Cash Offer Today&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="form-sub"&gt;No obligation · Responds within 24 hours · 100% confidential&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ⚠️ SETUP NOTICE (remove once Google Sheets is configured) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="setup-notice" id="setupNotice"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;⚙️ One-Time Setup Required&lt;/strong&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>To enable Google Sheets integration:&lt;br/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>1. Go to &lt;strong&gt;script.google.com&lt;/strong&gt; → New Project&lt;br/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>2. Paste the Apps Script code (included at bottom of this file)&lt;br/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>3. Deploy as Web App → "Anyone" can access&lt;br/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>4. Copy your Web App URL and replace &lt;code&gt;YOUR_GOOGLE_APPS_SCRIPT_URL&lt;/code&gt; in the script below</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="lead-form" id="contactForm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="frow"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="fgroup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;First Name *&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="text" id="firstName" placeholder="Jane" required/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="fgroup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Last Name *&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="text" id="lastName" placeholder="Smith" required/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fgroup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Property Address *&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="address" placeholder="123 Main St, Quincy, MA" required/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="frow"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="fgroup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Phone *&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="tel" id="phone" placeholder="(508) 377-6864" required/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="fgroup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Email *&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="email" id="email" placeholder="capital.vitalis@gmail.com" required/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fgroup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Why Are You Selling?&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="reason"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value=""&gt;Select a reason...&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Inherited property&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Facing foreclosure&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Divorce / life change&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Relocating&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Property needs too many repairs&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Behind on payments&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Tired landlord&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Other&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fgroup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Property Condition&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="condition"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value=""&gt;Select condition...&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Move-in ready&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Needs minor repairs&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Needs major repairs&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option&gt;Distressed / damaged&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="submit-btn" type="button" onclick="submitForm()"&gt;Get My Free Cash Offer →&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="formMessage" class="form-msg"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="form-trust"&gt;Your information is private and never shared.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="contact-quick"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="tel:5083776864" class="cq-item"&gt;📞 (508) 377-6864&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="/cdn-cgi/l/email-protection#640705140d1005084a120d1005080d17240309050d084a070b09" class="cq-item"&gt;✉️ &lt;span class="__cf_email__" data-cfemail="432022332a37222f6d352a37222f2a3003242e222a2f6d202c2e"&gt;[email&amp;#160;protected]&lt;/span&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- STATS BAR --&gt;</p>
-<p class="p1">&lt;div class="stats"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="stat-box"&gt;&lt;div class="stat-n"&gt;100+&lt;/div&gt;&lt;div class="stat-l"&gt;Homes Purchased&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="stat-box"&gt;&lt;div class="stat-n"&gt;7&lt;/div&gt;&lt;div class="stat-l"&gt;Days Avg. Close&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="stat-box"&gt;&lt;div class="stat-n"&gt;$0&lt;/div&gt;&lt;div class="stat-l"&gt;Fees or Commissions&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="stat-box"&gt;&lt;div class="stat-n"&gt;10+&lt;/div&gt;&lt;div class="stat-l"&gt;Years South Shore&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- PROCESS --&gt;</p>
-<p class="p1">&lt;section class="process"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section-tag"&gt;How It Works&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2 style="color:var(--navy);"&gt;Sell Your Home in 3 Simple Steps&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="process-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="process-step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-num"&gt;01&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-title"&gt;Submit Your Property&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="step-desc"&gt;Fill out our short form above with your address and a few details. It takes less than 2 minutes and there's zero obligation.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="process-step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-num"&gt;02&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-title"&gt;Get a Cash Offer&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="step-desc"&gt;We'll review your property and present a fair, no-pressure cash offer within 24–48 hours. No repairs or showings needed.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="process-step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-num"&gt;03&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-title"&gt;Pick Your Closing Date&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="step-desc"&gt;You choose when to close — as fast as 7 days or on a timeline that works for you. We handle all the paperwork.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="process-step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-num"&gt;04&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="step-title"&gt;Get Paid in Cash&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="step-desc"&gt;Walk away with cash in hand, on your schedule. No hidden fees, no last-minute surprises. Just a clean, simple sale.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- WHY SELL TO US --&gt;</p>
-<p class="p1">&lt;section class="why"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="why-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-tag" style="color:var(--gold);"&gt;&lt;span style="background:var(--gold);"&gt;&lt;/span&gt;Why Vitalis Capital&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 style="color:var(--white);"&gt;Skip the Hassle.&lt;br/&gt;Sell Direct.&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="why-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="why-item"&gt;&lt;div class="why-check"&gt;✦&lt;/div&gt;&lt;div&gt;&lt;h4&gt;Sell As-Is — Any Condition&lt;/h4&gt;&lt;p&gt;Don't spend a dime fixing up your home. We buy properties in any condition — fire damage, outdated kitchens, foundation issues. We've seen it all.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="why-item"&gt;&lt;div class="why-check"&gt;✦&lt;/div&gt;&lt;div&gt;&lt;h4&gt;No Agent, No Commission&lt;/h4&gt;&lt;p&gt;Traditional sales cost 5–6% in agent fees alone. Selling to us means you keep more of your money — period.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="why-item"&gt;&lt;div class="why-check"&gt;✦&lt;/div&gt;&lt;div&gt;&lt;h4&gt;Flexible Closing Timeline&lt;/h4&gt;&lt;p&gt;Need to close in a week? Need 60 days? You call the shots. We work around your schedule, not ours.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="why-item"&gt;&lt;div class="why-check"&gt;✦&lt;/div&gt;&lt;div&gt;&lt;h4&gt;Local South Shore Buyers&lt;/h4&gt;&lt;p&gt;We're not a national hedge fund. We're local investors who know these neighborhoods and close with real cash.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="vs-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="vs-title"&gt;Vitalis Capital vs. Traditional Sale&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="vs-row"&gt;&lt;span class="vs-label"&gt;Closing Time&lt;/span&gt;&lt;span class="vs-us"&gt;7–14 Days&lt;/span&gt;&lt;span class="vs-them"&gt;60–90 Days&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="vs-row"&gt;&lt;span class="vs-label"&gt;Agent Commissions&lt;/span&gt;&lt;span class="vs-us"&gt;$0&lt;/span&gt;&lt;span class="vs-them"&gt;5–6%&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="vs-row"&gt;&lt;span class="vs-label"&gt;Repairs Required&lt;/span&gt;&lt;span class="vs-us"&gt;None&lt;/span&gt;&lt;span class="vs-them"&gt;Often $10K–$40K+&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="vs-row"&gt;&lt;span class="vs-label"&gt;Open Houses / Showings&lt;/span&gt;&lt;span class="vs-us"&gt;Zero&lt;/span&gt;&lt;span class="vs-them"&gt;Many&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="vs-row"&gt;&lt;span class="vs-label"&gt;Deal Fall Through Risk&lt;/span&gt;&lt;span class="vs-us"&gt;None&lt;/span&gt;&lt;span class="vs-them"&gt;High&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="vs-row"&gt;&lt;span class="vs-label"&gt;Closing Costs&lt;/span&gt;&lt;span class="vs-us"&gt;We Cover Them&lt;/span&gt;&lt;span class="vs-them"&gt;2–5% Seller Pays&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="vs-row"&gt;&lt;span class="vs-label"&gt;Cash in Hand&lt;/span&gt;&lt;span class="vs-us"&gt;Guaranteed&lt;/span&gt;&lt;span class="vs-them"&gt;Depends on Financing&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- TESTIMONIALS --&gt;</p>
-<p class="p1">&lt;section class="testimonials"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section-tag" style="color:var(--gold);"&gt;&lt;span style="background:var(--gold);"&gt;&lt;/span&gt;What Sellers Say&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2 style="color:var(--white);"&gt;Real People. Real Results.&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="tgrid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tcard"&gt;&lt;p class="ttext"&gt;I inherited my aunt's house and had no idea what to do with it. Vitalis made an offer within 24 hours and we closed in 10 days. No stress, no repairs. I couldn't believe how easy it was.&lt;/p&gt;&lt;div class="tauthor"&gt;Linda M.&lt;/div&gt;&lt;div class="tloc"&gt;Quincy, MA&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tcard"&gt;&lt;p class="ttext"&gt;Was behind on payments and scared of foreclosure. Vitalis came in fast, gave us a fair offer, and closed before anything hit our credit. These guys genuinely helped save us.&lt;/p&gt;&lt;div class="tauthor"&gt;David &amp;amp; Carol R.&lt;/div&gt;&lt;div class="tloc"&gt;Brockton, MA&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tcard"&gt;&lt;p class="ttext"&gt;I was a tired landlord with a rental that needed $30K in work. Didn't want to deal with it. Vitalis bought it as-is and I had cash in my account in two weeks. Highly recommend.&lt;/p&gt;&lt;div class="tauthor"&gt;Kevin T.&lt;/div&gt;&lt;div class="tloc"&gt;Weymouth, MA&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- BOTTOM CTA --&gt;</p>
-<p class="p1">&lt;div class="bottom-cta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="bcta-text"&gt;&lt;h2&gt;Ready to Get Your Free Cash Offer?&lt;/h2&gt;&lt;p&gt;No repairs. No fees. No pressure. Close on your timeline.&lt;/p&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#lead-form" class="bcta-btn"&gt;Get My Cash Offer Now&lt;/a&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- FOOTER --&gt;</p>
-<p class="p1">&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="footer-logo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;img src="Vitalis_Capital.png" alt="Vitalis Capital Group"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--gold);letter-spacing:0.06em;"&gt;Vitalis Capital Group&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="footer-copy"&gt;© 2026 · South Shore, Massachusetts&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="margin-bottom:0.4rem;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="tel:5083776864" style="color:var(--gold);font-size:0.82rem;text-decoration:none;margin-right:1.5rem;"&gt;📞 (508) 377-6864&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="/cdn-cgi/l/email-protection#2e4d4f5e475a4f420058475a4f42475d6e49434f4742004d4143" style="color:var(--gold);font-size:0.82rem;text-decoration:none;"&gt;✉️ &lt;span class="__cf_email__" data-cfemail="3f5c5e4f564b5e531149564b5e53564c7f58525e5653115c5052"&gt;[email&amp;#160;protected]&lt;/span&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="footer-disclaimer"&gt;We are real estate investors, not licensed real estate agents. All offers are made directly and are not represented through a brokerage. Offers are subject to property inspection and due diligence.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- ============================================================</p>
-<p class="p1"><span class="Apple-converted-space">     </span>FORM SUBMISSION SCRIPT</p>
-<p class="p1"><span class="Apple-converted-space">     </span>Replace YOUR_GOOGLE_APPS_SCRIPT_URL with your deployed</p>
-<p class="p1"><span class="Apple-converted-space">     </span>Google Apps Script Web App URL to enable Sheets logging.</p>
-<p class="p1"><span class="Apple-converted-space">     </span>============================================================ --&gt;</p>
-<p class="p1">&lt;script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"&gt;&lt;/script&gt;&lt;script&gt;</p>
-<p class="p1">const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';</p>
-<p class="p2"><br></p>
-<p class="p1">async function submitForm() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const btn = document.querySelector('.submit-btn');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const msgEl = document.getElementById('formMessage');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const firstName = document.getElementById('firstName').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const lastName<span class="Apple-converted-space">  </span>= document.getElementById('lastName').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const address <span class="Apple-converted-space">  </span>= document.getElementById('address').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const phone <span class="Apple-converted-space">    </span>= document.getElementById('phone').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const email <span class="Apple-converted-space">    </span>= document.getElementById('email').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const reason<span class="Apple-converted-space">    </span>= document.getElementById('reason').value;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const condition = document.getElementById('condition').value;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Basic validation</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (!firstName || !lastName || !address || !phone || !email) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msgEl.className = 'form-msg error';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msgEl.textContent = '⚠️ Please fill in all required fields.';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>btn.disabled = true;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>btn.textContent = 'Sending...';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>msgEl.className = 'form-msg';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>msgEl.textContent = '';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const payload = {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>timestamp: new Date().toLocaleString('en-US', {timeZone:'America/New_York'}),</p>
-<p class="p1"><span class="Apple-converted-space">    </span>firstName, lastName, address, phone, email, reason, condition</p>
-<p class="p1"><span class="Apple-converted-space">  </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// If no URL set, show setup reminder</p>
-<p class="p3"><span class="s1"><span class="Apple-converted-space">  </span>if (GOOGLE_SCRIPT_URL === '</span>https://script.google.com/macros/s/AKfycbzRYmt5AdYSS0h4nftX9DMRj--fFtTEsHJQgvbp4wcfvN7dyJReSaXkDv6Mm-GgVBA_hA/exec<span class="s1">') {</span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>msgEl.className = 'form-msg success';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>msgEl.textContent = '✅ Lead captured! (Google Sheets not yet connected — see setup notice above.)';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>btn.disabled = false;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>btn.textContent = 'Get My Free Cash Offer →';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}, 800);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>console.log('Lead data:', payload);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>await fetch(GOOGLE_SCRIPT_URL, {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>method: 'POST',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>mode: 'no-cors',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>headers: { 'Content-Type': 'application/json' },</p>
-<p class="p1"><span class="Apple-converted-space">      </span>body: JSON.stringify(payload)</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>msgEl.className = 'form-msg success';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msgEl.textContent = '✅ Thank you! We\'ll be in touch within 24 hours with your cash offer.';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('contactForm').reset();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} catch (err) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msgEl.className = 'form-msg error';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msgEl.textContent = '❌ Something went wrong. Please call us directly at (508) 377-6864.';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} finally {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>btn.disabled = false;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>btn.textContent = 'Get My Free Cash Offer →';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/script&gt;</p>
-</body>
-</html>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-wrap">
+    <img src="Vitalis_Capital.png" alt="Vitalis Capital Group Logo" />
+    <div class="logo-text">
+      <div class="logo-mark">Vitalis Capital Group</div>
+      <div class="logo-sub">South Shore Real Estate</div>
+    </div>
+  </div>
+  <a href="#lead-form" class="nav-cta">Get My Cash Offer</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="tag">South Shore's #1 Cash Home Buyers</div>
+    <h1>We Buy<br/><span>Houses</span><br/>Fast &amp; Fair</h1>
+    <p class="hero-desc">Selling your home shouldn't be stressful. We make all-cash offers on South Shore homes — no repairs, no agents, no waiting. Close in as little as 7 days.</p>
+    <div class="offer-pills">
+      <span class="pill">✓ No Repairs Needed</span>
+      <span class="pill">✓ No Agent Fees</span>
+      <span class="pill">✓ Close in 7 Days</span>
+      <span class="pill">✓ Any Condition</span>
+    </div>
+  </div>
+
+  <!-- LEAD FORM -->
+  <div class="hero-right" id="lead-form">
+    <div class="form-headline">Get Your Free<br/>Cash Offer Today</div>
+    <div class="form-sub">No obligation · Responds within 24 hours · 100% confidential</div>
+
+    <!-- ⚠️ SETUP NOTICE (remove once Google Sheets is configured) -->
+    <div class="setup-notice" id="setupNotice">
+      <strong>⚙️ One-Time Setup Required</strong>
+      To enable Google Sheets integration:<br/>
+      1. Go to <strong>script.google.com</strong> → New Project<br/>
+      2. Paste the Apps Script code (included at bottom of this file)<br/>
+      3. Deploy as Web App → "Anyone" can access<br/>
+      4. Copy your Web App URL and replace <code>YOUR_GOOGLE_APPS_SCRIPT_URL</code> in the script below
+    </div>
+
+    <div class="lead-form" id="contactForm">
+      <div class="frow">
+        <div class="fgroup">
+          <label>First Name *</label>
+          <input type="text" id="firstName" placeholder="Jane" required/>
+        </div>
+        <div class="fgroup">
+          <label>Last Name *</label>
+          <input type="text" id="lastName" placeholder="Smith" required/>
+        </div>
+      </div>
+      <div class="fgroup">
+        <label>Property Address *</label>
+        <input type="text" id="address" placeholder="123 Main St, Quincy, MA" required/>
+      </div>
+      <div class="frow">
+        <div class="fgroup">
+          <label>Phone *</label>
+          <input type="tel" id="phone" placeholder="(508) 377-6864" required/>
+        </div>
+        <div class="fgroup">
+          <label>Email *</label>
+          <input type="email" id="email" placeholder="capital.vitalis@gmail.com" required/>
+        </div>
+      </div>
+      <div class="fgroup">
+        <label>Why Are You Selling?</label>
+        <select id="reason">
+          <option value="">Select a reason...</option>
+          <option>Inherited property</option>
+          <option>Facing foreclosure</option>
+          <option>Divorce / life change</option>
+          <option>Relocating</option>
+          <option>Property needs too many repairs</option>
+          <option>Behind on payments</option>
+          <option>Tired landlord</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fgroup">
+        <label>Property Condition</label>
+        <select id="condition">
+          <option value="">Select condition...</option>
+          <option>Move-in ready</option>
+          <option>Needs minor repairs</option>
+          <option>Needs major repairs</option>
+          <option>Distressed / damaged</option>
+        </select>
+      </div>
+      <button class="submit-btn" type="button" onclick="submitForm()">Get My Free Cash Offer →</button>
+      <div id="formMessage" class="form-msg"></div>
+      <div class="form-trust">Your information is private and never shared.</div>
+      <div class="contact-quick">
+        <a href="tel:5083776864" class="cq-item">📞 (508) 377-6864</a>
+        <a href="mailto:capital.vitalis@gmail.com" class="cq-item">✉️ capital.vitalis@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats">
+  <div class="stat-box"><div class="stat-n">100+</div><div class="stat-l">Homes Purchased</div></div>
+  <div class="stat-box"><div class="stat-n">7</div><div class="stat-l">Days Avg. Close</div></div>
+  <div class="stat-box"><div class="stat-n">$0</div><div class="stat-l">Fees or Commissions</div></div>
+  <div class="stat-box"><div class="stat-n">10+</div><div class="stat-l">Years South Shore</div></div>
+</div>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-tag">How It Works</div>
+  <h2 style="color:var(--navy);">Sell Your Home in 3 Simple Steps</h2>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Submit Your Property</div>
+      <p class="step-desc">Fill out our short form above with your address and a few details. It takes less than 2 minutes and there's zero obligation.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Get a Cash Offer</div>
+      <p class="step-desc">We'll review your property and present a fair, no-pressure cash offer within 24–48 hours. No repairs or showings needed.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Pick Your Closing Date</div>
+      <p class="step-desc">You choose when to close — as fast as 7 days or on a timeline that works for you. We handle all the paperwork.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Get Paid in Cash</div>
+      <p class="step-desc">Walk away with cash in hand, on your schedule. No hidden fees, no last-minute surprises. Just a clean, simple sale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SELL TO US -->
+<section class="why">
+  <div class="why-grid">
+    <div>
+      <div class="section-tag" style="color:var(--gold);"><span style="background:var(--gold);"></span>Why Vitalis Capital</div>
+      <h2 style="color:var(--white);">Skip the Hassle.<br/>Sell Direct.</h2>
+      <div class="why-list">
+        <div class="why-item"><div class="why-check">✦</div><div><h4>Sell As-Is — Any Condition</h4><p>Don't spend a dime fixing up your home. We buy properties in any condition — fire damage, outdated kitchens, foundation issues. We've seen it all.</p></div></div>
+        <div class="why-item"><div class="why-check">✦</div><div><h4>No Agent, No Commission</h4><p>Traditional sales cost 5–6% in agent fees alone. Selling to us means you keep more of your money — period.</p></div></div>
+        <div class="why-item"><div class="why-check">✦</div><div><h4>Flexible Closing Timeline</h4><p>Need to close in a week? Need 60 days? You call the shots. We work around your schedule, not ours.</p></div></div>
+        <div class="why-item"><div class="why-check">✦</div><div><h4>Local South Shore Buyers</h4><p>We're not a national hedge fund. We're local investors who know these neighborhoods and close with real cash.</p></div></div>
+      </div>
+    </div>
+    <div class="vs-card">
+      <div class="vs-title">Vitalis Capital vs. Traditional Sale</div>
+      <div class="vs-row"><span class="vs-label">Closing Time</span><span class="vs-us">7–14 Days</span><span class="vs-them">60–90 Days</span></div>
+      <div class="vs-row"><span class="vs-label">Agent Commissions</span><span class="vs-us">$0</span><span class="vs-them">5–6%</span></div>
+      <div class="vs-row"><span class="vs-label">Repairs Required</span><span class="vs-us">None</span><span class="vs-them">Often $10K–$40K+</span></div>
+      <div class="vs-row"><span class="vs-label">Open Houses / Showings</span><span class="vs-us">Zero</span><span class="vs-them">Many</span></div>
+      <div class="vs-row"><span class="vs-label">Deal Fall Through Risk</span><span class="vs-us">None</span><span class="vs-them">High</span></div>
+      <div class="vs-row"><span class="vs-label">Closing Costs</span><span class="vs-us">We Cover Them</span><span class="vs-them">2–5% Seller Pays</span></div>
+      <div class="vs-row"><span class="vs-label">Cash in Hand</span><span class="vs-us">Guaranteed</span><span class="vs-them">Depends on Financing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-tag" style="color:var(--gold);"><span style="background:var(--gold);"></span>What Sellers Say</div>
+  <h2 style="color:var(--white);">Real People. Real Results.</h2>
+  <div class="tgrid">
+    <div class="tcard"><p class="ttext">I inherited my aunt's house and had no idea what to do with it. Vitalis made an offer within 24 hours and we closed in 10 days. No stress, no repairs. I couldn't believe how easy it was.</p><div class="tauthor">Linda M.</div><div class="tloc">Quincy, MA</div></div>
+    <div class="tcard"><p class="ttext">Was behind on payments and scared of foreclosure. Vitalis came in fast, gave us a fair offer, and closed before anything hit our credit. These guys genuinely helped save us.</p><div class="tauthor">David &amp; Carol R.</div><div class="tloc">Brockton, MA</div></div>
+    <div class="tcard"><p class="ttext">I was a tired landlord with a rental that needed $30K in work. Didn't want to deal with it. Vitalis bought it as-is and I had cash in my account in two weeks. Highly recommend.</p><div class="tauthor">Kevin T.</div><div class="tloc">Weymouth, MA</div></div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <div class="bcta-text"><h2>Ready to Get Your Free Cash Offer?</h2><p>No repairs. No fees. No pressure. Close on your timeline.</p></div>
+  <a href="#lead-form" class="bcta-btn">Get My Cash Offer Now</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="Vitalis_Capital.png" alt="Vitalis Capital Group"/>
+    <div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--gold);letter-spacing:0.06em;">Vitalis Capital Group</div>
+      <div class="footer-copy">© 2026 · South Shore, Massachusetts</div>
+    </div>
+  </div>
+  <div>
+    <div style="margin-bottom:0.4rem;">
+      <a href="tel:5083776864" style="color:var(--gold);font-size:0.82rem;text-decoration:none;margin-right:1.5rem;">📞 (508) 377-6864</a>
+      <a href="mailto:capital.vitalis@gmail.com" style="color:var(--gold);font-size:0.82rem;text-decoration:none;">✉️ capital.vitalis@gmail.com</a>
+    </div>
+    <div class="footer-disclaimer">We are real estate investors, not licensed real estate agents. All offers are made directly and are not represented through a brokerage. Offers are subject to property inspection and due diligence.</div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FORM SUBMISSION SCRIPT
+     Replace YOUR_GOOGLE_APPS_SCRIPT_URL with your deployed
+     Google Apps Script Web App URL to enable Sheets logging.
+     ============================================================ -->
+<script>
+const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+
+async function submitForm() {
+  const btn = document.querySelector('.submit-btn');
+  const msgEl = document.getElementById('formMessage');
+
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName  = document.getElementById('lastName').value.trim();
+  const address   = document.getElementById('address').value.trim();
+  const phone     = document.getElementById('phone').value.trim();
+  const email     = document.getElementById('email').value.trim();
+  const reason    = document.getElementById('reason').value;
+  const condition = document.getElementById('condition').value;
+
+  // Basic validation
+  if (!firstName || !lastName || !address || !phone || !email) {
+    msgEl.className = 'form-msg error';
+    msgEl.textContent = '⚠️ Please fill in all required fields.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  msgEl.className = 'form-msg';
+  msgEl.textContent = '';
+
+  const payload = {
+    timestamp: new Date().toLocaleString('en-US', {timeZone:'America/New_York'}),
+    firstName, lastName, address, phone, email, reason, condition
+  };
+
+  // If no URL set, show setup reminder
+  if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+    setTimeout(() => {
+      msgEl.className = 'form-msg success';
+      msgEl.textContent = '✅ Lead captured! (Google Sheets not yet connected — see setup notice above.)';
+      btn.disabled = false;
+      btn.textContent = 'Get My Free Cash Offer →';
+    }, 800);
+    console.log('Lead data:', payload);
+    return;
+  }
+
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    msgEl.className = 'form-msg success';
+    msgEl.textContent = '✅ Thank you! We\'ll be in touch within 24 hours with your cash offer.';
+    document.getElementById('contactForm').reset();
+  } catch (err) {
+    msgEl.className = 'form-msg error';
+    msgEl.textContent = '❌ Something went wrong. Please call us directly at (508) 377-6864.';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Get My Free Cash Offer →';
+  }
+}
+</script>
+
+<!-- ============================================================
+     GOOGLE APPS SCRIPT CODE — paste this at script.google.com
+     ============================================================
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = JSON.parse(e.postData.contents);
+
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow([
+      'Timestamp', 'First Name', 'Last Name', 'Address',
+      'Phone', 'Email', 'Reason for Selling', 'Property Condition'
+    ]);
+  }
+
+  sheet.appendRow([
+    data.timestamp,
+    data.firstName,
+    data.lastName,
+    data.address,
+    data.phone,
+    data.email,
+    data.reason,
+    data.condition
+  ]);
+
+  return ContentService.createTextOutput(
+    JSON.stringify({ status: 'success' })
+  ).setMimeType(ContentService.MimeType.JSON);
+}
