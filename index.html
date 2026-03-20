@@ -389,7 +389,7 @@ footer{background:#060f1a;padding:1.75rem 3rem;display:flex;align-items:center;j
      Google Apps Script Web App URL to enable Sheets logging.
      ============================================================ -->
 <script>
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbyULjX2Prbn08fcIQFCocFTk2vYGs2LsO261rZS9XQFktwcHDCgjXDc5_h0eKJfM7owiQ/exec
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNPPOFX9HVOomIAeaOJrDeeh2lTjuoKGqA7hJNenQcASL9LdnVr5JIgTc00leRAlAuTw/exec';
 
 async function submitForm() {
   const btn = document.querySelector('.submit-btn');
@@ -403,7 +403,6 @@ async function submitForm() {
   const reason    = document.getElementById('reason').value;
   const condition = document.getElementById('condition').value;
 
-  // Basic validation
   if (!firstName || !lastName || !address || !phone || !email) {
     msgEl.className = 'form-msg error';
     msgEl.textContent = '⚠️ Please fill in all required fields.';
@@ -420,18 +419,6 @@ async function submitForm() {
     firstName, lastName, address, phone, email, reason, condition
   };
 
-  // If no URL set, show setup reminder
-  if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbyULjX2Prbn08fcIQFCocFTk2vYGs2LsO261rZS9XQFktwcHDCgjXDc5_h0eKJfM7owiQ/exec {
-    setTimeout(() => {
-      msgEl.className = 'form-msg success';
-      msgEl.textContent = '✅ Lead captured!';
-      btn.disabled = false;
-      btn.textContent = 'Get My Free Cash Offer →';
-    }, 800);
-    console.log('Lead data:', payload);
-    return;
-  }
-
   try {
     await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
@@ -443,9 +430,10 @@ async function submitForm() {
     msgEl.className = 'form-msg success';
     msgEl.textContent = '✅ Thank you! We\'ll be in touch within 24 hours with your cash offer.';
     document.getElementById('contactForm').reset();
+
   } catch (err) {
     msgEl.className = 'form-msg error';
-    msgEl.textContent = '❌ Something went wrong. Please call us directly at (508) 377-6864.';
+    msgEl.textContent = '❌ Something went wrong. Please call us at (508) 377-6864.';
   } finally {
     btn.disabled = false;
     btn.textContent = 'Get My Free Cash Offer →';
