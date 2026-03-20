@@ -391,9 +391,9 @@ footer{background:#060f1a;padding:1.75rem 3rem;display:flex;align-items:center;j
 <script>
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNPPOFX9HVOomIAeaOJrDeeh2lTjuoKGqA7hJNenQcASL9LdnVr5JIgTc00leRAlAuTw/exec';
 
-async function submitForm() {
-  const btn = document.querySelector('.submit-btn');
+function submitForm() {
   const msgEl = document.getElementById('formMessage');
+  const btn = document.querySelector('.submit-btn');
 
   const firstName = document.getElementById('firstName').value.trim();
   const lastName  = document.getElementById('lastName').value.trim();
@@ -414,33 +414,58 @@ async function submitForm() {
   msgEl.className = 'form-msg';
   msgEl.textContent = '';
 
-  const payload = {
+  // Use URL encoded form data instead of JSON to avoid CORS
+  const formData = new FormData();
+  formData.append('timestamp', new Date().toLocaleString('en-US', {timeZone:'America/New_York'}));
+  formData.append('firstName', firstName);
+  formData.append('lastName', lastName);
+  formData.append('address', address);
+  formData.append('phone', phone);
+  formData.append('email', email);
+  formData.append('reason', reason);
+  formData.append('condition', condition);
+
+  const params = new URLSearchParams({
     timestamp: new Date().toLocaleString('en-US', {timeZone:'America/New_York'}),
     firstName, lastName, address, phone, email, reason, condition
-  };
+  });
 
-  try {
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
+  // Use a hidden iframe to submit — bypasses CORS completely
+  const iframe = document.createElement('iframe');
+  iframe.name = 'hidden_iframe';
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
 
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = GOOGLE_SCRIPT_URL;
+  form.target = 'hidden_iframe';
+
+  const fields = {timestamp: new Date().toLocaleString('en-US',{timeZone:'America/New_York'}), firstName, lastName, address, phone, email, reason, condition};
+
+  Object.keys(fields).forEach(key => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = fields[key];
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+
+  // Show success after short delay
+  setTimeout(() => {
     msgEl.className = 'form-msg success';
     msgEl.textContent = '✅ Thank you! We\'ll be in touch within 24 hours with your cash offer.';
-    document.getElementById('contactForm').reset();
-
-  } catch (err) {
-    msgEl.className = 'form-msg error';
-    msgEl.textContent = '❌ Something went wrong. Please call us at (508) 377-6864.';
-  } finally {
     btn.disabled = false;
     btn.textContent = 'Get My Free Cash Offer →';
-  }
+    document.getElementById('contactForm').reset();
+    document.body.removeChild(form);
+    document.body.removeChild(iframe);
+  }, 2000);
 }
 </script>
-
 <!-- ============================================================
      GOOGLE APPS SCRIPT CODE — paste this at script.google.com
      ============================================================
