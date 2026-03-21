@@ -388,9 +388,10 @@ footer{background:#060f1a;padding:1.75rem 3rem;display:flex;align-items:center;j
      Replace YOUR_GOOGLE_APPS_SCRIPT_URL with your deployed
      Google Apps Script Web App URL to enable Sheets logging.
      ============================================================ -->
-<script>
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxIR3JG6WrhRY2KXKU_wvCyE6v7zk5U1EaJXbQ4Il7oO7eFI8auzgY4hJPUfLo4xLw8w/exec'
-  
+<body>
+  <script>
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxIR3JG6WrhRY2KXKU_wvCyE6v7zk5U1EaJXbQ4Il7oO7eFI8auzgY4hJPUfLo4xLw8w/exec';
+
 function submitForm() {
   const msgEl = document.getElementById('formMessage');
   const btn = document.querySelector('.submit-btn');
@@ -414,14 +415,12 @@ function submitForm() {
   msgEl.className = 'form-msg';
   msgEl.textContent = '';
 
-  // Create hidden iframe to bypass CORS
   const iframeName = 'hidden_iframe_' + Date.now();
   const iframe = document.createElement('iframe');
   iframe.name = iframeName;
   iframe.style.display = 'none';
   document.body.appendChild(iframe);
 
-  // Create and submit hidden form
   const hiddenForm = document.createElement('form');
   hiddenForm.method = 'POST';
   hiddenForm.action = GOOGLE_SCRIPT_URL;
@@ -443,14 +442,11 @@ function submitForm() {
   document.body.appendChild(hiddenForm);
   hiddenForm.submit();
 
-  // Show success and reset form fields manually
   setTimeout(() => {
     msgEl.className = 'form-msg success';
     msgEl.textContent = '✅ Thank you! We\'ll be in touch within 24 hours with your cash offer.';
     btn.disabled = false;
     btn.textContent = 'Get My Free Cash Offer →';
-
-    // Reset fields manually (fixes the reset error)
     document.getElementById('firstName').value = '';
     document.getElementById('lastName').value = '';
     document.getElementById('address').value = '';
@@ -458,13 +454,13 @@ function submitForm() {
     document.getElementById('email').value = '';
     document.getElementById('reason').value = '';
     document.getElementById('condition').value = '';
-
-    // Clean up
     document.body.removeChild(hiddenForm);
     document.body.removeChild(iframe);
   }, 2500);
 }
 </script>
+</body>
+</html>
 <!-- ============================================================
      GOOGLE APPS SCRIPT CODE — paste this at script.google.com
      ============================================================
