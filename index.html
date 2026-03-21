@@ -40,27 +40,25 @@ nav{
   padding:0.6rem 1.6rem;font-size:0.82rem;font-weight:600;
   letter-spacing:0.08em;text-transform:uppercase;
   border:none;cursor:pointer;border-radius:1px;
-  text-decoration:none;transition:background 0.2s;
-  font-family:'Barlow',sans-serif;
+  font-family:'Barlow',sans-serif;transition:background 0.2s;
 }
 .nav-cta:hover{background:#c94e00;}
 
 /* HERO */
 .hero{
   min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:8rem 3rem 5rem;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:6rem 0 0;
   position:relative;overflow:hidden;
-  text-align:center;
-  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#0a1628 100%);
 }
-.hero-bg{
-  position:absolute;inset:0;z-index:0;
-  background-image:
-    repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(201,168,76,0.04) 80px),
-    repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(201,168,76,0.04) 80px);
+.hero-left{padding:3rem 2rem 3rem 3rem;position:relative;z-index:2;}
+.hero-right-panel{
+  background:var(--navy2);min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:3rem;position:relative;
 }
-.hero-content{position:relative;z-index:1;max-width:800px;}
+.hero-right-panel::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);}
 .tag{
   display:inline-flex;align-items:center;gap:0.5rem;
   background:var(--orange);color:var(--white);
@@ -71,82 +69,46 @@ nav{
 .tag::before{content:'●';font-size:0.5rem;}
 h1{
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3.5rem,8vw,6.5rem);
+  font-size:clamp(3.5rem,7vw,6rem);
   line-height:0.95;letter-spacing:0.03em;margin-bottom:1.5rem;
 }
 h1 span{color:var(--gold);}
-.hero-desc{font-size:1.1rem;line-height:1.8;color:rgba(255,255,255,0.65);max-width:600px;margin:0 auto 2.5rem;font-weight:300;}
-.offer-pills{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:3rem;justify-content:center;}
+.hero-desc{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.6);max-width:440px;margin-bottom:2rem;font-weight:300;}
+.offer-pills{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:2rem;}
 .pill{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:0.4rem 0.9rem;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;border-radius:1px;}
-.hero-cta-btn{
+.hero-stats{
+  display:flex;gap:2.5rem;
+  padding-top:2rem;border-top:1px solid rgba(201,168,76,0.15);
+  flex-wrap:wrap;
+}
+.hero-stats .stat-n{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;}
+.hero-stats .stat-l{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.45);margin-top:3px;}
+
+/* RIGHT PANEL CONTENT */
+.panel-headline{
+  font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;
+  letter-spacing:0.04em;text-transform:uppercase;color:var(--white);
+  margin-bottom:0.4rem;line-height:1.2;
+}
+.panel-sub{font-size:0.82rem;color:var(--gray);margin-bottom:1.5rem;font-weight:300;}
+.panel-cta-btn{
   background:var(--gold);color:var(--navy);
-  padding:1.1rem 2.8rem;font-size:1.1rem;font-weight:700;
+  padding:1rem;font-size:1rem;font-weight:700;
   letter-spacing:0.1em;text-transform:uppercase;
   border:none;cursor:pointer;border-radius:1px;
   font-family:'Barlow Condensed',sans-serif;
-  transition:background 0.2s;display:inline-block;
+  transition:background 0.2s;width:100%;margin-bottom:1.5rem;
 }
-.hero-cta-btn:hover{background:var(--gold2);}
-.hero-stats{
-  display:flex;gap:3rem;margin-top:4rem;
-  padding-top:2.5rem;border-top:1px solid rgba(201,168,76,0.15);
-  justify-content:center;flex-wrap:wrap;
+.panel-cta-btn:hover{background:var(--gold2);}
+.panel-features{display:flex;flex-direction:column;gap:0.75rem;}
+.panel-feature{
+  display:flex;align-items:center;gap:0.75rem;
+  font-size:0.88rem;color:rgba(255,255,255,0.7);
 }
-.stat-item .stat-n2{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);}
-.stat-item .stat-l2{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.5);margin-top:2px;}
-
-/* POPUP OVERLAY */
-.popup-overlay{
-  display:none;position:fixed;inset:0;z-index:500;
-  background:rgba(5,12,22,0.85);
-  align-items:center;justify-content:center;
-  padding:1.5rem;
-}
-.popup-overlay.active{display:flex;}
-.popup-box{
-  background:var(--navy2);border:1px solid rgba(201,168,76,0.25);
-  border-top:4px solid var(--gold);
-  width:100%;max-width:560px;
-  padding:2.5rem;position:relative;
-  max-height:90vh;overflow-y:auto;
-  border-radius:2px;
-}
-.popup-close{
-  position:absolute;top:1rem;right:1rem;
-  background:transparent;border:none;
-  color:var(--gray);font-size:1.5rem;cursor:pointer;
-  line-height:1;transition:color 0.2s;
-}
-.popup-close:hover{color:var(--white);}
-.form-headline{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem;line-height:1.1;}
-.form-sub{font-size:0.82rem;color:var(--gray);margin-bottom:1.5rem;font-weight:300;}
-.lead-form{display:flex;flex-direction:column;gap:0.85rem;}
-.fgroup{display:flex;flex-direction:column;gap:0.3rem;}
-.fgroup label{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);font-weight:500;}
-.fgroup input,.fgroup select{
-  background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-bottom:2px solid rgba(201,168,76,0.4);
-  color:var(--white);padding:0.7rem 0.9rem;font-size:0.9rem;font-family:'Barlow',sans-serif;
-  outline:none;transition:border-color 0.2s;border-radius:1px;width:100%;
-}
-.fgroup input:focus,.fgroup select:focus{border-color:var(--gold);border-bottom-color:var(--gold2);background:rgba(201,168,76,0.06);}
-.fgroup select option{background:var(--navy2);}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}
-.submit-btn{
-  background:var(--gold);color:var(--navy);padding:1rem;font-size:1rem;font-weight:700;
-  letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;border-radius:1px;
-  font-family:'Barlow Condensed',sans-serif;transition:background 0.2s,opacity 0.2s;margin-top:0.3rem;
-  width:100%;
-}
-.submit-btn:hover{background:var(--gold2);}
-.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
-.form-trust{display:flex;align-items:center;gap:0.5rem;font-size:0.72rem;color:var(--gray);margin-top:0.5rem;}
-.form-trust::before{content:'🔒';font-size:0.75rem;}
-.contact-quick{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.75rem;}
-.cq-item{color:var(--gold2);font-size:0.82rem;text-decoration:none;font-weight:500;transition:color 0.2s;}
-.cq-item:hover{color:var(--white);}
-.form-msg{display:none;padding:1rem;border-radius:2px;font-size:0.9rem;font-weight:500;text-align:center;margin-top:0.5rem;}
-.form-msg.success{display:block;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);color:#4ade80;}
-.form-msg.error{display:block;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#f87171;}
+.panel-feature-icon{color:var(--gold);font-size:1rem;flex-shrink:0;}
+.panel-contact{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(201,168,76,0.15);}
+.panel-contact a{color:var(--gold2);font-size:0.82rem;text-decoration:none;font-weight:500;transition:color 0.2s;}
+.panel-contact a:hover{color:var(--white);}
 
 /* FLOATING CTA */
 .floating-cta{
@@ -161,24 +123,81 @@ h1 span{color:var(--gold);}
 }
 .floating-cta:hover{background:#c94e00;transform:translateY(-2px);}
 
-
+/* POPUP OVERLAY */
+.popup-overlay{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(5,12,22,0.88);
+  align-items:center;justify-content:center;
+  padding:1.5rem;
+}
+.popup-overlay.active{display:flex;}
+.popup-box{
+  background:var(--navy2);
+  border:1px solid rgba(201,168,76,0.25);
+  border-top:4px solid var(--gold);
+  width:100%;max-width:560px;
+  padding:2.5rem;position:relative;
+  max-height:90vh;overflow-y:auto;
+  border-radius:2px;
+}
+.popup-close{
+  position:absolute;top:1rem;right:1rem;
+  background:transparent;border:none;
+  color:var(--gray);font-size:1.5rem;cursor:pointer;
+  line-height:1;transition:color 0.2s;padding:0.25rem;
+}
+.popup-close:hover{color:var(--white);}
+.form-headline{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem;line-height:1.1;}
+.form-sub{font-size:0.82rem;color:var(--gray);margin-bottom:1.5rem;font-weight:300;}
+.lead-form{display:flex;flex-direction:column;gap:0.85rem;}
+.fgroup{display:flex;flex-direction:column;gap:0.3rem;}
+.fgroup label{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);font-weight:500;}
+.fgroup input,.fgroup select{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(201,168,76,0.2);
+  border-bottom:2px solid rgba(201,168,76,0.4);
+  color:var(--white);padding:0.7rem 0.9rem;
+  font-size:0.9rem;font-family:'Barlow',sans-serif;
+  outline:none;transition:border-color 0.2s;
+  border-radius:1px;width:100%;
+}
+.fgroup input:focus,.fgroup select:focus{
+  border-color:var(--gold);
+  border-bottom-color:var(--gold2);
+  background:rgba(201,168,76,0.06);
+}
+.fgroup select option{background:var(--navy2);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}
+.submit-btn{
+  background:var(--gold);color:var(--navy);padding:1rem;font-size:1rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;border-radius:1px;
+  font-family:'Barlow Condensed',sans-serif;transition:background 0.2s,opacity 0.2s;
+  margin-top:0.3rem;width:100%;
+}
+.submit-btn:hover{background:var(--gold2);}
+.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
+.form-trust{display:flex;align-items:center;gap:0.5rem;font-size:0.72rem;color:var(--gray);margin-top:0.5rem;}
+.form-trust::before{content:'🔒';font-size:0.75rem;}
+.contact-quick{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.75rem;}
+.cq-item{color:var(--gold2);font-size:0.82rem;text-decoration:none;font-weight:500;transition:color 0.2s;}
+.cq-item:hover{color:var(--white);}
+.form-msg{display:none;padding:1rem;border-radius:2px;font-size:0.9rem;font-weight:500;text-align:center;margin-top:0.5rem;}
+.form-msg.success{display:block;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);color:#4ade80;}
+.form-msg.error{display:block;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#f87171;}
 
 /* PROCESS */
 .process{background:var(--light);color:var(--navy);padding:6rem 3rem;}
 .section-tag{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:0.8rem;}
 .section-tag::before{content:'';display:block;width:24px;height:2px;background:var(--orange);}
 h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spacing:0.04em;line-height:1.05;margin-bottom:0.5rem;}
-.process-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:0;margin-top:3rem;border-top:3px solid var(--navy);
-}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;border-top:3px solid var(--navy);}
 .process-step{padding:2.5rem 2rem 2rem 0;border-right:1px solid rgba(11,25,41,0.12);}
 .process-step:last-child{border-right:none;padding-right:0;}
 .step-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--gold);line-height:1;margin-bottom:1rem;opacity:0.6;}
 .step-title{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);margin-bottom:0.75rem;}
 .step-desc{font-size:0.85rem;line-height:1.75;color:#4a5a70;font-weight:300;}
 
-/* ABOUT US */
+/* ABOUT */
 .about{background:var(--navy);padding:6rem 3rem;}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem;}
 .about-text p{font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.65);font-weight:300;margin-bottom:1.25rem;}
@@ -189,16 +208,8 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spa
   font-weight:600;letter-spacing:0.02em;
 }
 .about-cards{display:flex;flex-direction:column;gap:1.2rem;}
-.about-card{
-  background:var(--navy2);
-  border-left:3px solid var(--gold);
-  padding:1.5rem;
-}
-.about-card h4{
-  font-family:'Barlow Condensed',sans-serif;font-size:1rem;
-  font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:0.4rem;
-}
+.about-card{background:var(--navy2);border-left:3px solid var(--gold);padding:1.5rem;}
+.about-card h4{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
 .about-card p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.65;font-weight:300;}
 
 /* WHY SELL */
@@ -214,19 +225,10 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spa
 .vs-card{background:var(--navy3);border:1px solid rgba(201,168,76,0.2);border-top:4px solid var(--gold);padding:2rem;}
 .vs-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:1.25rem;}
 .vs-table{width:100%;border-collapse:collapse;}
-.vs-table th{
-  font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;
-  font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--gray);padding:0.5rem 0.75rem;text-align:left;
-  border-bottom:1px solid rgba(201,168,76,0.2);
-}
-.vs-table th:last-child{text-align:right;}
+.vs-table th{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);padding:0.5rem 0.75rem;text-align:left;border-bottom:1px solid rgba(201,168,76,0.2);}
 .vs-table th:nth-child(2){text-align:center;}
-.vs-table td{
-  padding:0.75rem;font-size:0.85rem;
-  border-bottom:1px solid rgba(255,255,255,0.05);
-  vertical-align:middle;
-}
+.vs-table th:last-child{text-align:right;}
+.vs-table td{padding:0.75rem;font-size:0.85rem;border-bottom:1px solid rgba(255,255,255,0.05);vertical-align:middle;}
 .vs-table tr:last-child td{border-bottom:none;}
 .vs-table td:first-child{color:var(--gray);font-weight:300;}
 .vs-table td:nth-child(2){color:var(--gold2);font-weight:600;text-align:center;}
@@ -234,7 +236,7 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spa
 
 /* FAQ */
 .faq{background:var(--light);padding:6rem 3rem;}
-.faq-list{margin-top:3rem;display:flex;flex-direction:column;gap:0;}
+.faq-list{margin-top:3rem;display:flex;flex-direction:column;}
 .faq-item{border-bottom:1px solid rgba(11,25,41,0.15);}
 .faq-item:first-child{border-top:1px solid rgba(11,25,41,0.15);}
 .faq-question{
@@ -257,7 +259,7 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spa
 .bottom-cta{background:var(--orange);padding:4rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
 .bcta-text h2{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.04em;color:var(--white);line-height:1.05;}
 .bcta-text p{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:300;margin-top:0.4rem;}
-.bcta-btn{background:var(--white);color:var(--orange);padding:1rem 2.5rem;font-size:1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:none;cursor:pointer;border-radius:1px;font-family:'Barlow Condensed',sans-serif;white-space:nowrap;text-decoration:none;display:inline-block;transition:background 0.2s;}
+.bcta-btn{background:var(--white);color:var(--orange);padding:1rem 2.5rem;font-size:1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:none;cursor:pointer;border-radius:1px;font-family:'Barlow Condensed',sans-serif;white-space:nowrap;transition:background 0.2s;}
 .bcta-btn:hover{background:var(--gold-pale);}
 
 /* FOOTER */
@@ -273,20 +275,19 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hero{padding:7rem 1.5rem 4rem;}
-  .hero-stats{gap:1.5rem;}
-  .about-grid{grid-template-columns:1fr;}
-  .why-grid{grid-template-columns:1fr;}
-  .stats{grid-template-columns:1fr 1fr;}
+  .hero{grid-template-columns:1fr;}
+  .hero-right-panel{min-height:auto;padding:2.5rem 1.5rem;}
+  .hero-right-panel::before{display:none;}
+  .hero-left{padding:3rem 1.5rem 2rem;}
+  .about-grid,.why-grid{grid-template-columns:1fr;}
   .bottom-cta{flex-direction:column;text-align:center;}
   nav{padding:0.9rem 1.5rem;}
   .process,.why,.faq,.about,.bottom-cta{padding:4rem 1.5rem;}
   footer{flex-direction:column;}
-  .floating-cta{bottom:1rem;right:1rem;font-size:0.78rem;padding:0.75rem 1.2rem;}
+  .floating-cta{bottom:1rem;right:1rem;}
   .frow{grid-template-columns:1fr;}
 }
 @media(max-width:500px){
-  .stats{grid-template-columns:1fr 1fr;}
   .process-grid{grid-template-columns:1fr;}
 }
 </style>
@@ -307,8 +308,8 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
+  <div class="hero-left">
+    <div class="tag">Cash Home Buyers — Massachusetts</div>
     <h1>We Buy<br/><span>Houses</span><br/>Fast &amp; Fair</h1>
     <p class="hero-desc">Selling your home should not be stressful. We make all-cash offers across Massachusetts — no repairs, no agents, closing on your timeline.</p>
     <div class="offer-pills">
@@ -317,17 +318,41 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
       <span class="pill">&#10003; Closing Within Your Timeframe</span>
       <span class="pill">&#10003; Any Condition</span>
     </div>
-    <button class="hero-cta-btn" onclick="openPopup()">Get My Free Cash Offer &#8594;</button>
     <div class="hero-stats">
-      <div class="stat-item"><div class="stat-n2">100+</div><div class="stat-l2">Homes Purchased</div></div>
-      <div class="stat-item"><div class="stat-n2">&#9733;</div><div class="stat-l2">On Your Timeline</div></div>
-      <div class="stat-item"><div class="stat-n2">$0</div><div class="stat-l2">Fees or Commissions</div></div>
-      <div class="stat-item"><div class="stat-n2">10+</div><div class="stat-l2">Years Experience</div></div>
+      <div>
+        <div class="stat-n">100+</div>
+        <div class="stat-l">Homes Purchased</div>
+      </div>
+      <div>
+        <div class="stat-n">$0</div>
+        <div class="stat-l">Fees or Commissions</div>
+      </div>
+      <div>
+        <div class="stat-n">10+</div>
+        <div class="stat-l">Years Experience</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="hero-right-panel">
+    <div class="panel-headline">Get Your Free Cash Offer Today</div>
+    <div class="panel-sub">No obligation &middot; Response within 24 hours &middot; 100% confidential</div>
+    <button class="panel-cta-btn" onclick="openPopup()">Request My Free Cash Offer &#8594;</button>
+    <div class="panel-features">
+      <div class="panel-feature"><div class="panel-feature-icon">&#10022;</div><span>We buy in any condition — no repairs needed</span></div>
+      <div class="panel-feature"><div class="panel-feature-icon">&#10022;</div><span>Zero agent commissions or closing costs</span></div>
+      <div class="panel-feature"><div class="panel-feature-icon">&#10022;</div><span>Close on your schedule — fast or flexible</span></div>
+      <div class="panel-feature"><div class="panel-feature-icon">&#10022;</div><span>Local Massachusetts investors you can trust</span></div>
+    </div>
+    <div class="panel-contact">
+      <a href="tel:5083776864">&#128222; (508) 377-6864</a>
+      <a href="mailto:capital.vitalis@gmail.com">&#9993; capital.vitalis@gmail.com</a>
     </div>
   </div>
 </section>
 
-<!-- FLOATING CTA -->
+<!-- FLOATING BUTTON -->
 <button class="floating-cta" onclick="openPopup()">&#128222; Get Cash Offer</button>
 
 <!-- POPUP FORM -->
@@ -400,13 +425,11 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
       <div class="form-trust">Your information is private and never shared.</div>
       <div class="contact-quick">
         <a href="tel:5083776864" class="cq-item">&#128222; (508) 377-6864</a>
-        <a href="/cdn-cgi/l/email-protection#f59694859c819499db839c8194999c86b59298949c99db969a98" class="cq-item">&#9993; <span class="__cf_email__" data-cfemail="fc9f9d8c95889d90d28a95889d90958fbc9b919d9590d29f9391">[email&#160;protected]</span></a>
+        <a href="mailto:capital.vitalis@gmail.com" class="cq-item">&#9993; capital.vitalis@gmail.com</a>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <!-- PROCESS -->
 <section class="process">
@@ -442,9 +465,7 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
   <h2 style="color:var(--white);">Who We Are</h2>
   <div class="about-grid">
     <div class="about-text">
-      <div class="about-highlight">
-        We are Massachusetts real estate investors who believe selling your home should be simple, fair, and stress-free.
-      </div>
+      <div class="about-highlight">We are Massachusetts real estate investors who believe selling your home should be simple, fair, and stress-free.</div>
       <p>Vitalis Capital Group was founded with one mission — to give Massachusetts homeowners a better way to sell. Whether you are dealing with an inherited property, facing foreclosure, going through a divorce, or simply ready to move on, we are here to help with a straightforward cash offer and zero hassle.</p>
       <p>We are not a big corporation or a national hedge fund. We are local investors who know Massachusetts neighborhoods, understand the local market, and genuinely care about the people we work with. Every deal is handled with honesty, speed, and respect for your situation.</p>
       <p>Over the years we have helped hundreds of Massachusetts homeowners move forward — and we would love to help you too.</p>
@@ -521,49 +542,24 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
   <h2 style="color:var(--navy);">Frequently Asked Questions</h2>
   <div class="faq-list">
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        Do I need to make repairs before selling?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        <p>Absolutely not. We buy homes in any condition — fire damage, outdated systems, foundation issues, hoarding situations, you name it. You do not need to clean, fix, or stage anything. We handle everything after closing so you can walk away stress-free.</p>
-      </div>
+      <button class="faq-question" onclick="toggleFaq(this)">Do I need to make repairs before selling?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>Absolutely not. We buy homes in any condition — fire damage, outdated systems, foundation issues, hoarding situations, you name it. You do not need to clean, fix, or stage anything. We handle everything after closing so you can walk away stress-free.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        Are there any fees or commissions?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        <p>Zero. There are no agent commissions, no closing costs, and no hidden fees. The offer we make is the amount you walk away with. Traditional real estate sales can cost sellers 6-10% in fees alone — we eliminate all of that.</p>
-      </div>
+      <button class="faq-question" onclick="toggleFaq(this)">Are there any fees or commissions?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>Zero. There are no agent commissions, no closing costs, and no hidden fees. The offer we make is the amount you walk away with. Traditional real estate sales can cost sellers 6-10% in fees alone — we eliminate all of that.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        What types of properties do you buy?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        <p>We buy all types of residential properties across Massachusetts — single family homes, multi-family homes, condos, and rental properties. Whether the home is vacant, occupied, inherited, or in foreclosure, we are interested in making an offer.</p>
-      </div>
+      <button class="faq-question" onclick="toggleFaq(this)">What types of properties do you buy?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>We buy all types of residential properties across Massachusetts — single family homes, multi-family homes, condos, and rental properties. Whether the home is vacant, occupied, inherited, or in foreclosure, we are interested in making an offer.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        How is this different from listing with an agent?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        <p>When you list with an agent, you wait months for the right buyer, pay 5-6% commission, make repairs, host showings, and risk deals falling through. With Vitalis Capital, you get a guaranteed cash offer, zero fees, no showings, and you close on your timeline.</p>
-      </div>
+      <button class="faq-question" onclick="toggleFaq(this)">How is this different from listing with an agent?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>When you list with an agent, you wait months for the right buyer, pay 5-6% commission, make repairs, host showings, and risk deals falling through. With Vitalis Capital, you get a guaranteed cash offer, zero fees, no showings, and you close on your timeline.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        Is my information kept confidential?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        <p>Yes, 100%. Any information you share with us is completely private and never sold or shared with third parties. We treat every conversation with complete discretion — whether you are facing foreclosure, divorce, or any other sensitive situation.</p>
-      </div>
+      <button class="faq-question" onclick="toggleFaq(this)">Is my information kept confidential?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>Yes, 100%. Any information you share with us is completely private and never sold or shared with third parties. We treat every conversation with complete discretion — whether you are facing foreclosure, divorce, or any other sensitive situation.</p></div>
     </div>
   </div>
 </section>
@@ -590,14 +586,14 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
   <div>
     <div class="footer-contact">
       <a href="tel:5083776864">&#128222; (508) 377-6864</a>
-      <a href="/cdn-cgi/l/email-protection#3f5c5e4f564b5e531149564b5e53564c7f58525e5653115c5052">&#9993; <span class="__cf_email__" data-cfemail="b0d3d1c0d9c4d1dc9ec6d9c4d1dcd9c3f0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</span></a>
+      <a href="mailto:capital.vitalis@gmail.com">&#9993; capital.vitalis@gmail.com</a>
     </div>
     <div class="footer-disclaimer">We are real estate investors, not licensed real estate agents. All offers are made directly and are not represented through a brokerage. Offers are subject to property inspection and due diligence.</div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxIR3JG6WrhRY2KXKU_wvCyE6v7zk5U1EaJXbQ4Il7oO7eFI8auzgY4hJPUfLo4xLw8w/exec';
+<script>
+var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxIR3JG6WrhRY2KXKU_wvCyE6v7zk5U1EaJXbQ4Il7oO7eFI8auzgY4hJPUfLo4xLw8w/exec';
 
 function openPopup() {
   document.getElementById('popupOverlay').classList.add('active');
@@ -616,7 +612,7 @@ function closeOnOverlay(event) {
 }
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closePopup();
+  if (e.key === 'Escape') { closePopup(); }
 });
 
 function submitForm() {
@@ -701,4 +697,19 @@ function submitForm() {
 }
 
 function toggleFaq(btn) {
-  var answer
+  var answer = btn.nextElementSibling;
+  var isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(function(a) {
+    a.classList.remove('open');
+  });
+  document.querySelectorAll('.faq-question').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+</script>
+</body>
+</html>
