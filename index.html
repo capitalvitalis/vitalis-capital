@@ -348,15 +348,77 @@ footer{background:#060f1a;padding:1.75rem 3rem;display:flex;align-items:center;j
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-tag" style="color:var(--gold);"><span style="background:var(--gold);"></span>What Sellers Say</div>
-  <h2 style="color:var(--white);">Real People. Real Results.</h2>
-  <div class="tgrid">
-    <div class="tcard"><p class="ttext">I inherited my aunt's house and had no idea what to do with it. Vitalis made an offer within 24 hours and we closed in 10 days. No stress, no repairs. I couldn't believe how easy it was.</p><div class="tauthor">Linda M.</div><div class="tloc">Quincy, MA</div></div>
-    <div class="tcard"><p class="ttext">Was behind on payments and scared of foreclosure. Vitalis came in fast, gave us a fair offer, and closed before anything hit our credit. These guys genuinely helped save us.</p><div class="tauthor">David &amp; Carol R.</div><div class="tloc">Brockton, MA</div></div>
-    <div class="tcard"><p class="ttext">I was a tired landlord with a rental that needed $30K in work. Didn't want to deal with it. Vitalis bought it as-is and I had cash in my account in two weeks. Highly recommend.</p><div class="tauthor">Kevin T.</div><div class="tloc">Weymouth, MA</div></div>
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-tag">Common Questions</div>
+  <h2 style="color:var(--white);">Frequently Asked Questions</h2>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do I need to make repairs before selling?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Absolutely not. We buy homes in any condition — fire damage, outdated systems, foundation issues, hoarding situations, you name it. You don't need to clean, fix, or stage anything. We handle everything after closing so you can walk away stress-free.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Are there any fees or commissions?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Zero. There are no agent commissions, no closing costs, and no hidden fees. The offer we make is the amount you walk away with. Traditional real estate sales can cost sellers 6–10% in fees alone — we eliminate all of that.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What types of properties do you buy?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>We buy all types of residential properties on the South Shore — single family homes, multi-family homes, condos, and rental properties. Whether the home is vacant, occupied, inherited, or in foreclosure, we're interested in making an offer.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How is this different from listing with an agent?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>When you list with an agent, you wait months for the right buyer, pay 5–6% commission, make repairs, host showings, and risk deals falling through. With Vitalis Capital, you get a guaranteed cash offer, zero fees, no showings, and you close on your timeline — as fast as 7 days.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is my information kept confidential?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes, 100%. Any information you share with us is completely private and never sold or shared with third parties. We treat every conversation with complete discretion — whether you're facing foreclosure, divorce, or any other sensitive situation.</p>
+      </div>
+    </div>
+
   </div>
+  function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+
+  // Close all open FAQs
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-question').forEach(b => b.classList.remove('active'));
+
+  // Open clicked one if it was closed
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.classList.add('active');
+  }
+}
 </section>
 
 <!-- BOTTOM CTA -->
