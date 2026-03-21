@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Vitalis Capital Group — We Buy Houses South Shore</title>
+<title>Vitalis Capital Group — We Buy Houses Massachusetts</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -48,18 +48,19 @@ nav{
 /* HERO */
 .hero{
   min-height:100vh;
-  display:grid;grid-template-columns:1fr 1fr;
-  align-items:center;
-  padding:6rem 0 0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:8rem 3rem 5rem;
   position:relative;overflow:hidden;
+  text-align:center;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#0a1628 100%);
 }
-.hero-left{padding:3rem 2rem 3rem 3rem;position:relative;z-index:2;}
-.hero-right{
-  background:var(--navy2);min-height:100vh;
-  display:flex;flex-direction:column;justify-content:center;
-  padding:3rem 3rem 3rem 2.5rem;position:relative;
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(201,168,76,0.04) 80px),
+    repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(201,168,76,0.04) 80px);
 }
-.hero-right::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);}
+.hero-content{position:relative;z-index:1;max-width:800px;}
 .tag{
   display:inline-flex;align-items:center;gap:0.5rem;
   background:var(--orange);color:var(--white);
@@ -70,47 +71,97 @@ nav{
 .tag::before{content:'●';font-size:0.5rem;}
 h1{
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3.5rem,7vw,6rem);
+  font-size:clamp(3.5rem,8vw,6.5rem);
   line-height:0.95;letter-spacing:0.03em;margin-bottom:1.5rem;
 }
 h1 span{color:var(--gold);}
-.hero-desc{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.6);max-width:440px;margin-bottom:2rem;font-weight:300;}
-.offer-pills{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.hero-desc{font-size:1.1rem;line-height:1.8;color:rgba(255,255,255,0.65);max-width:600px;margin:0 auto 2.5rem;font-weight:300;}
+.offer-pills{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:3rem;justify-content:center;}
 .pill{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:0.4rem 0.9rem;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;border-radius:1px;}
+.hero-cta-btn{
+  background:var(--gold);color:var(--navy);
+  padding:1.1rem 2.8rem;font-size:1.1rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  border:none;cursor:pointer;border-radius:1px;
+  font-family:'Barlow Condensed',sans-serif;
+  transition:background 0.2s;display:inline-block;
+}
+.hero-cta-btn:hover{background:var(--gold2);}
+.hero-stats{
+  display:flex;gap:3rem;margin-top:4rem;
+  padding-top:2.5rem;border-top:1px solid rgba(201,168,76,0.15);
+  justify-content:center;flex-wrap:wrap;
+}
+.stat-item .stat-n2{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);}
+.stat-item .stat-l2{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.5);margin-top:2px;}
 
-/* LEAD FORM */
+/* POPUP OVERLAY */
+.popup-overlay{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(5,12,22,0.85);
+  align-items:center;justify-content:center;
+  padding:1.5rem;
+}
+.popup-overlay.active{display:flex;}
+.popup-box{
+  background:var(--navy2);border:1px solid rgba(201,168,76,0.25);
+  border-top:4px solid var(--gold);
+  width:100%;max-width:560px;
+  padding:2.5rem;position:relative;
+  max-height:90vh;overflow-y:auto;
+  border-radius:2px;
+}
+.popup-close{
+  position:absolute;top:1rem;right:1rem;
+  background:transparent;border:none;
+  color:var(--gray);font-size:1.5rem;cursor:pointer;
+  line-height:1;transition:color 0.2s;
+}
+.popup-close:hover{color:var(--white);}
 .form-headline{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem;line-height:1.1;}
 .form-sub{font-size:0.82rem;color:var(--gray);margin-bottom:1.5rem;font-weight:300;}
 .lead-form{display:flex;flex-direction:column;gap:0.85rem;}
 .fgroup{display:flex;flex-direction:column;gap:0.3rem;}
 .fgroup label{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);font-weight:500;}
-.fgroup input,.fgroup select,.fgroup textarea{
+.fgroup input,.fgroup select{
   background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-bottom:2px solid rgba(201,168,76,0.4);
   color:var(--white);padding:0.7rem 0.9rem;font-size:0.9rem;font-family:'Barlow',sans-serif;
   outline:none;transition:border-color 0.2s;border-radius:1px;width:100%;
 }
-.fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus{border-color:var(--gold);border-bottom-color:var(--gold2);background:rgba(201,168,76,0.06);}
+.fgroup input:focus,.fgroup select:focus{border-color:var(--gold);border-bottom-color:var(--gold2);background:rgba(201,168,76,0.06);}
 .fgroup select option{background:var(--navy2);}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}
 .submit-btn{
   background:var(--gold);color:var(--navy);padding:1rem;font-size:1rem;font-weight:700;
   letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;border-radius:1px;
   font-family:'Barlow Condensed',sans-serif;transition:background 0.2s,opacity 0.2s;margin-top:0.3rem;
+  width:100%;
 }
 .submit-btn:hover{background:var(--gold2);}
 .submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .form-trust{display:flex;align-items:center;gap:0.5rem;font-size:0.72rem;color:var(--gray);margin-top:0.5rem;}
 .form-trust::before{content:'🔒';font-size:0.75rem;}
 .contact-quick{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.75rem;}
-.cq-item{color:var(--gold2);font-size:0.82rem;text-decoration:none;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;}
+.cq-item{color:var(--gold2);font-size:0.82rem;text-decoration:none;font-weight:500;transition:color 0.2s;}
 .cq-item:hover{color:var(--white);}
-
-/* SUCCESS / ERROR MESSAGES */
 .form-msg{display:none;padding:1rem;border-radius:2px;font-size:0.9rem;font-weight:500;text-align:center;margin-top:0.5rem;}
 .form-msg.success{display:block;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);color:#4ade80;}
 .form-msg.error{display:block;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#f87171;}
 
-/* STATS */
+/* FLOATING CTA */
+.floating-cta{
+  position:fixed;bottom:2rem;right:2rem;z-index:300;
+  background:var(--orange);color:var(--white);
+  padding:0.9rem 1.8rem;font-size:0.85rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  border:none;cursor:pointer;border-radius:1px;
+  font-family:'Barlow Condensed',sans-serif;
+  box-shadow:0 4px 20px rgba(232,93,4,0.4);
+  transition:background 0.2s,transform 0.2s;
+}
+.floating-cta:hover{background:#c94e00;transform:translateY(-2px);}
+
+/* STATS BAR */
 .stats{background:var(--gold);color:var(--navy);padding:3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;}
 .stat-box{text-align:center;padding:1.5rem 1rem;background:var(--gold);}
 .stat-box:nth-child(even){background:var(--gold2);}
@@ -118,52 +169,93 @@ h1 span{color:var(--gold);}
 .stat-l{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.65;margin-top:0.25rem;}
 
 /* PROCESS */
-.process{background:var(--light);color:var(--navy);padding:5rem 3rem;}
+.process{background:var(--light);color:var(--navy);padding:6rem 3rem;}
 .section-tag{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:0.8rem;}
 .section-tag::before{content:'';display:block;width:24px;height:2px;background:var(--orange);}
 h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spacing:0.04em;line-height:1.05;margin-bottom:0.5rem;}
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;border-top:3px solid var(--navy);}
-.process-step{padding:2rem 1.5rem 2rem 0;border-right:1px solid rgba(11,25,41,0.12);}
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin-top:3rem;border-top:3px solid var(--navy);
+}
+.process-step{padding:2.5rem 2rem 2rem 0;border-right:1px solid rgba(11,25,41,0.12);}
 .process-step:last-child{border-right:none;padding-right:0;}
-.step-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--gold);line-height:1;margin-bottom:0.5rem;opacity:0.6;}
-.step-title{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;}
-.step-desc{font-size:0.85rem;line-height:1.7;color:#4a5a70;font-weight:300;}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--gold);line-height:1;margin-bottom:1rem;opacity:0.6;}
+.step-title{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);margin-bottom:0.75rem;}
+.step-desc{font-size:0.85rem;line-height:1.75;color:#4a5a70;font-weight:300;}
+
+/* ABOUT US */
+.about{background:var(--navy);padding:6rem 3rem;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem;}
+.about-text p{font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.65);font-weight:300;margin-bottom:1.25rem;}
+.about-highlight{
+  border-left:4px solid var(--gold);padding-left:1.5rem;
+  font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;
+  color:var(--white);line-height:1.5;margin:2rem 0;
+  font-weight:600;letter-spacing:0.02em;
+}
+.about-cards{display:flex;flex-direction:column;gap:1.2rem;}
+.about-card{
+  background:var(--navy2);
+  border-left:3px solid var(--gold);
+  padding:1.5rem;
+}
+.about-card h4{
+  font-family:'Barlow Condensed',sans-serif;font-size:1rem;
+  font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:0.4rem;
+}
+.about-card p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.65;font-weight:300;}
 
 /* WHY SELL */
-.why{background:var(--navy2);padding:5rem 3rem;}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.why{background:var(--navy2);padding:6rem 3rem;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
 .why-list{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
 .why-item{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:rgba(255,255,255,0.03);border-left:3px solid var(--gold);}
-.why-check{color:var(--gold);font-size:1.1rem;margin-top:1px;flex-shrink:0;}
-.why-item h4{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:0.25rem;}
-.why-item p{font-size:0.82rem;color:var(--gray);line-height:1.6;font-weight:300;}
+.why-check{color:var(--gold);font-size:1.1rem;margin-top:2px;flex-shrink:0;}
+.why-item h4{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:0.3rem;}
+.why-item p{font-size:0.82rem;color:var(--gray);line-height:1.65;font-weight:300;}
+
+/* VS TABLE */
 .vs-card{background:var(--navy3);border:1px solid rgba(201,168,76,0.2);border-top:4px solid var(--gold);padding:2rem;}
-.vs-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:1.5rem;}
-.vs-row{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.85rem;}
-.vs-row:last-child{border-bottom:none;}
-.vs-label{color:var(--gray);font-weight:300;}
-.vs-us{color:var(--gold2);font-weight:600;}
-.vs-them{color:rgba(255,255,255,0.25);text-decoration:line-through;font-size:0.78rem;}
+.vs-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:1.25rem;}
+.vs-table{width:100%;border-collapse:collapse;}
+.vs-table th{
+  font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;
+  font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--gray);padding:0.5rem 0.75rem;text-align:left;
+  border-bottom:1px solid rgba(201,168,76,0.2);
+}
+.vs-table th:last-child{text-align:right;}
+.vs-table th:nth-child(2){text-align:center;}
+.vs-table td{
+  padding:0.75rem;font-size:0.85rem;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  vertical-align:middle;
+}
+.vs-table tr:last-child td{border-bottom:none;}
+.vs-table td:first-child{color:var(--gray);font-weight:300;}
+.vs-table td:nth-child(2){color:var(--gold2);font-weight:600;text-align:center;}
+.vs-table td:last-child{color:rgba(255,255,255,0.25);text-decoration:line-through;font-size:0.78rem;text-align:right;}
 
 /* FAQ */
-.faq{background:var(--navy);padding:5rem 3rem;}
+.faq{background:var(--light);padding:6rem 3rem;}
 .faq-list{margin-top:3rem;display:flex;flex-direction:column;gap:0;}
-.faq-item{border-bottom:1px solid rgba(201,168,76,0.15);}
-.faq-item:first-child{border-top:1px solid rgba(201,168,76,0.15);}
+.faq-item{border-bottom:1px solid rgba(11,25,41,0.15);}
+.faq-item:first-child{border-top:1px solid rgba(11,25,41,0.15);}
 .faq-question{
   width:100%;background:transparent;border:none;
   display:flex;justify-content:space-between;align-items:center;
   padding:1.5rem 0;cursor:pointer;text-align:left;
   font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;
   font-weight:700;letter-spacing:0.04em;text-transform:uppercase;
-  color:var(--white);transition:color 0.2s;
+  color:var(--navy);transition:color 0.2s;
 }
-.faq-question:hover{color:var(--gold);}
-.faq-icon{font-size:1.5rem;color:var(--gold);font-weight:300;transition:transform 0.3s;flex-shrink:0;margin-left:1rem;}
+.faq-question:hover{color:var(--orange);}
+.faq-icon{font-size:1.5rem;color:var(--orange);font-weight:300;transition:transform 0.3s;flex-shrink:0;margin-left:1rem;}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;}
 .faq-answer.open{max-height:300px;padding-bottom:1.5rem;}
-.faq-answer p{font-size:0.95rem;line-height:1.8;color:rgba(255,255,255,0.6);font-weight:300;}
-.faq-question.active{color:var(--gold);}
+.faq-answer p{font-size:0.95rem;line-height:1.8;color:#4a5a70;font-weight:300;}
+.faq-question.active{color:var(--orange);}
 .faq-question.active .faq-icon{transform:rotate(45deg);}
 
 /* BOTTOM CTA */
@@ -174,31 +266,31 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spa
 .bcta-btn:hover{background:var(--gold-pale);}
 
 /* FOOTER */
-footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
 .footer-logo{display:flex;align-items:center;gap:0.75rem;}
 .footer-logo img{height:40px;width:auto;opacity:0.85;}
-.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.25);margin-top:0.2rem;}
-.footer-disclaimer{font-size:0.68rem;color:rgba(255,255,255,0.18);max-width:500px;line-height:1.5;margin-top:0.5rem;}
+.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.25);margin-top:0.25rem;}
+.footer-address{font-size:0.78rem;color:var(--gray);margin-top:0.25rem;line-height:1.6;}
 .footer-contact{display:flex;flex-direction:column;gap:0.4rem;margin-top:0.25rem;}
 .footer-contact a{color:var(--gold);font-size:0.82rem;text-decoration:none;}
 .footer-contact a:hover{color:var(--gold2);}
-.footer-address{font-size:0.78rem;color:var(--gray);margin-top:0.2rem;line-height:1.5;}
+.footer-disclaimer{font-size:0.68rem;color:rgba(255,255,255,0.18);max-width:460px;line-height:1.6;margin-top:0.5rem;}
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;}
-  .hero-right{min-height:auto;padding:2.5rem 2rem;}
-  .hero-right::before{display:none;}
-  .process-grid{grid-template-columns:1fr 1fr;}
+  .hero{padding:7rem 1.5rem 4rem;}
+  .hero-stats{gap:1.5rem;}
+  .about-grid{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:1fr;}
   .stats{grid-template-columns:1fr 1fr;}
   .bottom-cta{flex-direction:column;text-align:center;}
   nav{padding:0.9rem 1.5rem;}
-  .process,.why,.faq,.bottom-cta{padding:3.5rem 1.5rem;}
+  .process,.why,.faq,.about,.bottom-cta{padding:4rem 1.5rem;}
   footer{flex-direction:column;}
+  .floating-cta{bottom:1rem;right:1rem;font-size:0.78rem;padding:0.75rem 1.2rem;}
+  .frow{grid-template-columns:1fr;}
 }
 @media(max-width:500px){
-  .frow{grid-template-columns:1fr;}
   .stats{grid-template-columns:1fr 1fr;}
   .process-grid{grid-template-columns:1fr;}
 }
@@ -212,31 +304,45 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
     <img src="Vitalis_Capital.png" alt="Vitalis Capital Group Logo"/>
     <div class="logo-text">
       <div class="logo-mark">Vitalis Capital Group</div>
-      <div class="logo-sub">South Shore Real Estate</div>
+      <div class="logo-sub">Massachusetts Real Estate</div>
     </div>
   </div>
-  <a href="#lead-form" class="nav-cta">Get My Cash Offer</a>
+  <button class="nav-cta" onclick="openPopup()">Get My Cash Offer</button>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-left">
-    <div class="tag">South Shore's #1 Cash Home Buyers</div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="tag">Massachusetts #1 Cash Home Buyers</div>
     <h1>We Buy<br/><span>Houses</span><br/>Fast &amp; Fair</h1>
-    <p class="hero-desc">Selling your home should not be stressful. We make all-cash offers on South Shore homes — no repairs, no agents, closing on your timeline.</p>
+    <p class="hero-desc">Selling your home should not be stressful. We make all-cash offers across Massachusetts — no repairs, no agents, closing on your timeline.</p>
     <div class="offer-pills">
       <span class="pill">&#10003; No Repairs Needed</span>
       <span class="pill">&#10003; No Agent Fees</span>
       <span class="pill">&#10003; Closing Within Your Timeframe</span>
       <span class="pill">&#10003; Any Condition</span>
     </div>
+    <button class="hero-cta-btn" onclick="openPopup()">Get My Free Cash Offer &#8594;</button>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-n2">100+</div><div class="stat-l2">Homes Purchased</div></div>
+      <div class="stat-item"><div class="stat-n2">&#9733;</div><div class="stat-l2">On Your Timeline</div></div>
+      <div class="stat-item"><div class="stat-n2">$0</div><div class="stat-l2">Fees or Commissions</div></div>
+      <div class="stat-item"><div class="stat-n2">10+</div><div class="stat-l2">Years Experience</div></div>
+    </div>
   </div>
+</section>
 
-  <!-- LEAD FORM -->
-  <div class="hero-right" id="lead-form">
+<!-- FLOATING CTA -->
+<button class="floating-cta" onclick="openPopup()">&#128222; Get Cash Offer</button>
+
+<!-- POPUP FORM -->
+<div class="popup-overlay" id="popupOverlay" onclick="closeOnOverlay(event)">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">&#10005;</button>
     <div class="form-headline">Get Your Free<br/>Cash Offer Today</div>
     <div class="form-sub">No obligation &middot; Responds within 24 hours &middot; 100% confidential</div>
-    <div class="lead-form" id="contactForm">
+    <div class="lead-form">
       <div class="frow">
         <div class="fgroup">
           <label>First Name *</label>
@@ -294,14 +400,14 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- STATS -->
 <div class="stats">
   <div class="stat-box"><div class="stat-n">100+</div><div class="stat-l">Homes Purchased</div></div>
   <div class="stat-box"><div class="stat-n">&#9733;</div><div class="stat-l">On Your Timeline</div></div>
   <div class="stat-box"><div class="stat-n">$0</div><div class="stat-l">Fees or Commissions</div></div>
-  <div class="stat-box"><div class="stat-n">10+</div><div class="stat-l">Years South Shore</div></div>
+  <div class="stat-box"><div class="stat-n">10+</div><div class="stat-l">Years Experience</div></div>
 </div>
 
 <!-- PROCESS -->
@@ -322,12 +428,42 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
     <div class="process-step">
       <div class="step-num">03</div>
       <div class="step-title">Pick Your Closing Date</div>
-      <p class="step-desc">You choose when to close on a timeline that works for you. We handle all the paperwork.</p>
+      <p class="step-desc">You choose when to close on a timeline that works for you. We handle all the paperwork from start to finish.</p>
     </div>
     <div class="process-step">
       <div class="step-num">04</div>
       <div class="step-title">Get Paid in Cash</div>
-      <p class="step-desc">Walk away with cash in hand on your schedule. No hidden fees, no last-minute surprises.</p>
+      <p class="step-desc">Walk away with cash in hand on your schedule. No hidden fees, no last-minute surprises. Just a clean, simple sale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section class="about" id="about">
+  <div class="section-tag" style="color:var(--gold);"><span style="background:var(--gold);width:24px;height:2px;display:block;"></span>About Us</div>
+  <h2 style="color:var(--white);">Who We Are</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="about-highlight">
+        We are Massachusetts real estate investors who believe selling your home should be simple, fair, and stress-free.
+      </div>
+      <p>Vitalis Capital Group was founded with one mission — to give Massachusetts homeowners a better way to sell. Whether you are dealing with an inherited property, facing foreclosure, going through a divorce, or simply ready to move on, we are here to help with a straightforward cash offer and zero hassle.</p>
+      <p>We are not a big corporation or a national hedge fund. We are local investors who know Massachusetts neighborhoods, understand the local market, and genuinely care about the people we work with. Every deal is handled with honesty, speed, and respect for your situation.</p>
+      <p>Over the years we have helped hundreds of Massachusetts homeowners move forward — and we would love to help you too.</p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <h4>&#10022; Our Mission</h4>
+        <p>To provide Massachusetts homeowners with a fast, honest, and hassle-free alternative to the traditional real estate process — putting more money in your pocket and less stress on your plate.</p>
+      </div>
+      <div class="about-card">
+        <h4>&#10022; Local Expertise</h4>
+        <p>We know Massachusetts neighborhoods inside and out — from the South Shore to Greater Boston. Our local knowledge means we can make fair, accurate offers quickly without wasting your time.</p>
+      </div>
+      <div class="about-card">
+        <h4>&#10022; Our Promise</h4>
+        <p>No pressure. No games. No hidden fees. We will always be upfront about our offer and our process. If we make you an offer, we stand behind it.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -353,27 +489,38 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
         </div>
         <div class="why-item">
           <div class="why-check">&#10022;</div>
-          <div><h4>Local South Shore Buyers</h4><p>We are not a national hedge fund. We are local investors who know these neighborhoods and close with real cash.</p></div>
+          <div><h4>Local Massachusetts Buyers</h4><p>We are not a national hedge fund. We are local investors who know these neighborhoods and close with real cash.</p></div>
         </div>
       </div>
     </div>
     <div class="vs-card">
       <div class="vs-title">Vitalis Capital vs. Traditional Sale</div>
-      <div class="vs-row"><span class="vs-label">Closing Time</span><span class="vs-us">Your Timeline</span><span class="vs-them">60-90 Days</span></div>
-      <div class="vs-row"><span class="vs-label">Agent Commissions</span><span class="vs-us">$0</span><span class="vs-them">5-6%</span></div>
-      <div class="vs-row"><span class="vs-label">Repairs Required</span><span class="vs-us">None</span><span class="vs-them">Often $10K-$40K+</span></div>
-      <div class="vs-row"><span class="vs-label">Open Houses / Showings</span><span class="vs-us">Zero</span><span class="vs-them">Many</span></div>
-      <div class="vs-row"><span class="vs-label">Deal Fall Through Risk</span><span class="vs-us">None</span><span class="vs-them">High</span></div>
-      <div class="vs-row"><span class="vs-label">Closing Costs</span><span class="vs-us">We Cover Them</span><span class="vs-them">2-5% Seller Pays</span></div>
-      <div class="vs-row"><span class="vs-label">Cash in Hand</span><span class="vs-us">Guaranteed</span><span class="vs-them">Depends on Financing</span></div>
+      <table class="vs-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Vitalis Capital</th>
+            <th>Traditional Sale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Closing Time</td><td>Your Timeline</td><td>60-90 Days</td></tr>
+          <tr><td>Agent Commissions</td><td>$0</td><td>5-6%</td></tr>
+          <tr><td>Repairs Required</td><td>None</td><td>Often $10K-$40K+</td></tr>
+          <tr><td>Showings</td><td>Zero</td><td>Many</td></tr>
+          <tr><td>Deal Fall Through Risk</td><td>None</td><td>High</td></tr>
+          <tr><td>Closing Costs</td><td>We Cover Them</td><td>2-5% Seller Pays</td></tr>
+          <tr><td>Cash in Hand</td><td>Guaranteed</td><td>Depends on Financing</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="faq">
-  <div class="section-tag" style="color:var(--gold);"><span style="background:var(--gold);width:24px;height:2px;display:block;"></span>Common Questions</div>
-  <h2 style="color:var(--white);">Frequently Asked Questions</h2>
+  <div class="section-tag">Common Questions</div>
+  <h2 style="color:var(--navy);">Frequently Asked Questions</h2>
   <div class="faq-list">
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
@@ -399,7 +546,7 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>We buy all types of residential properties on the South Shore — single family homes, multi-family homes, condos, and rental properties. Whether the home is vacant, occupied, inherited, or in foreclosure, we are interested in making an offer.</p>
+        <p>We buy all types of residential properties across Massachusetts — single family homes, multi-family homes, condos, and rental properties. Whether the home is vacant, occupied, inherited, or in foreclosure, we are interested in making an offer.</p>
       </div>
     </div>
     <div class="faq-item">
@@ -429,7 +576,7 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
     <h2>Ready to Get Your Free Cash Offer?</h2>
     <p>No repairs. No fees. No pressure. Close on your timeline.</p>
   </div>
-  <a href="#lead-form" class="bcta-btn">Get My Cash Offer Now</a>
+  <button class="bcta-btn" onclick="openPopup()">Get My Cash Offer Now</button>
 </div>
 
 <!-- FOOTER -->
@@ -438,11 +585,8 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
     <img src="Vitalis_Capital.png" alt="Vitalis Capital Group"/>
     <div>
       <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--gold);letter-spacing:0.06em;">Vitalis Capital Group</div>
-      <div class="footer-address">
-        500 Groosman Drive #1048<br/>
-        Braintree, MA 02184
-      </div>
-      <div class="footer-copy">&#169; 2026 &middot; South Shore, Massachusetts</div>
+      <div class="footer-address">500 Groosman Drive #1048<br/>Braintree, MA 02184</div>
+      <div class="footer-copy">&#169; 2026 &middot; Massachusetts Real Estate</div>
     </div>
   </div>
   <div>
@@ -456,6 +600,26 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
 
 <script>
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxIR3JG6WrhRY2KXKU_wvCyE6v7zk5U1EaJXbQ4Il7oO7eFI8auzgY4hJPUfLo4xLw8w/exec';
+
+function openPopup() {
+  document.getElementById('popupOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup() {
+  document.getElementById('popupOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeOnOverlay(event) {
+  if (event.target === document.getElementById('popupOverlay')) {
+    closePopup();
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closePopup();
+});
 
 function submitForm() {
   var msgEl = document.getElementById('formMessage');
