@@ -389,7 +389,7 @@ footer{background:#060f1a;padding:1.75rem 3rem;display:flex;align-items:center;j
      Google Apps Script Web App URL to enable Sheets logging.
      ============================================================ -->
 <body>
-  <script>
+ <script>
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxIR3JG6WrhRY2KXKU_wvCyE6v7zk5U1EaJXbQ4Il7oO7eFI8auzgY4hJPUfLo4xLw8w/exec';
 
 function submitForm() {
@@ -419,6 +419,11 @@ function submitForm() {
   const iframe = document.createElement('iframe');
   iframe.name = iframeName;
   iframe.style.display = 'none';
+
+  // Suppress the 403 error silently
+  iframe.onerror = function() {};
+  iframe.onload = function() {};
+
   document.body.appendChild(iframe);
 
   const hiddenForm = document.createElement('form');
@@ -442,11 +447,14 @@ function submitForm() {
   document.body.appendChild(hiddenForm);
   hiddenForm.submit();
 
+  // Show success after delay
   setTimeout(() => {
     msgEl.className = 'form-msg success';
     msgEl.textContent = '✅ Thank you! We\'ll be in touch within 24 hours with your cash offer.';
     btn.disabled = false;
     btn.textContent = 'Get My Free Cash Offer →';
+
+    // Clear all fields
     document.getElementById('firstName').value = '';
     document.getElementById('lastName').value = '';
     document.getElementById('address').value = '';
@@ -454,8 +462,13 @@ function submitForm() {
     document.getElementById('email').value = '';
     document.getElementById('reason').value = '';
     document.getElementById('condition').value = '';
-    document.body.removeChild(hiddenForm);
-    document.body.removeChild(iframe);
+
+    // Clean up hidden elements
+    try {
+      document.body.removeChild(hiddenForm);
+      document.body.removeChild(iframe);
+    } catch(e) {}
+
   }, 2500);
 }
 </script>
