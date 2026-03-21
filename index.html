@@ -161,12 +161,7 @@ h1 span{color:var(--gold);}
 }
 .floating-cta:hover{background:#c94e00;transform:translateY(-2px);}
 
-/* STATS BAR */
-.stats{background:var(--gold);color:var(--navy);padding:3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;}
-.stat-box{text-align:center;padding:1.5rem 1rem;background:var(--gold);}
-.stat-box:nth-child(even){background:var(--gold2);}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;letter-spacing:0.04em;line-height:1;}
-.stat-l{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.65;margin-top:0.25rem;}
+
 
 /* PROCESS */
 .process{background:var(--light);color:var(--navy);padding:6rem 3rem;}
@@ -314,7 +309,6 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="tag">Massachusetts #1 Cash Home Buyers</div>
     <h1>We Buy<br/><span>Houses</span><br/>Fast &amp; Fair</h1>
     <p class="hero-desc">Selling your home should not be stressful. We make all-cash offers across Massachusetts — no repairs, no agents, closing on your timeline.</p>
     <div class="offer-pills">
@@ -355,7 +349,17 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
       </div>
       <div class="fgroup">
         <label>Property Address *</label>
-        <input type="text" id="address" placeholder="123 Main St, Quincy, MA" required/>
+        <input type="text" id="address" placeholder="123 Main St" required/>
+      </div>
+      <div class="frow">
+        <div class="fgroup">
+          <label>City *</label>
+          <input type="text" id="city" placeholder="Quincy" required/>
+        </div>
+        <div class="fgroup">
+          <label>State *</label>
+          <input type="text" id="state" placeholder="MA" required/>
+        </div>
       </div>
       <div class="frow">
         <div class="fgroup">
@@ -396,19 +400,13 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
       <div class="form-trust">Your information is private and never shared.</div>
       <div class="contact-quick">
         <a href="tel:5083776864" class="cq-item">&#128222; (508) 377-6864</a>
-        <a href="mailto:capital.vitalis@gmail.com" class="cq-item">&#9993; capital.vitalis@gmail.com</a>
+        <a href="/cdn-cgi/l/email-protection#f59694859c819499db839c8194999c86b59298949c99db969a98" class="cq-item">&#9993; <span class="__cf_email__" data-cfemail="fc9f9d8c95889d90d28a95889d90958fbc9b919d9590d29f9391">[email&#160;protected]</span></a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat-box"><div class="stat-n">100+</div><div class="stat-l">Homes Purchased</div></div>
-  <div class="stat-box"><div class="stat-n">&#9733;</div><div class="stat-l">On Your Timeline</div></div>
-  <div class="stat-box"><div class="stat-n">$0</div><div class="stat-l">Fees or Commissions</div></div>
-  <div class="stat-box"><div class="stat-n">10+</div><div class="stat-l">Years Experience</div></div>
-</div>
+
 
 <!-- PROCESS -->
 <section class="process">
@@ -592,13 +590,13 @@ footer{background:#060f1a;padding:2rem 3rem;display:flex;align-items:flex-start;
   <div>
     <div class="footer-contact">
       <a href="tel:5083776864">&#128222; (508) 377-6864</a>
-      <a href="mailto:capital.vitalis@gmail.com">&#9993; capital.vitalis@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#3f5c5e4f564b5e531149564b5e53564c7f58525e5653115c5052">&#9993; <span class="__cf_email__" data-cfemail="b0d3d1c0d9c4d1dc9ec6d9c4d1dcd9c3f0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</span></a>
     </div>
     <div class="footer-disclaimer">We are real estate investors, not licensed real estate agents. All offers are made directly and are not represented through a brokerage. Offers are subject to property inspection and due diligence.</div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxIR3JG6WrhRY2KXKU_wvCyE6v7zk5U1EaJXbQ4Il7oO7eFI8auzgY4hJPUfLo4xLw8w/exec';
 
 function openPopup() {
@@ -628,12 +626,14 @@ function submitForm() {
   var firstName = document.getElementById('firstName').value.trim();
   var lastName  = document.getElementById('lastName').value.trim();
   var address   = document.getElementById('address').value.trim();
+  var city      = document.getElementById('city').value.trim();
+  var state     = document.getElementById('state').value.trim();
   var phone     = document.getElementById('phone').value.trim();
   var email     = document.getElementById('email').value.trim();
   var reason    = document.getElementById('reason').value;
   var condition = document.getElementById('condition').value;
 
-  if (!firstName || !lastName || !address || !phone || !email) {
+  if (!firstName || !lastName || !address || !city || !state || !phone || !email) {
     msgEl.className = 'form-msg error';
     msgEl.textContent = 'Please fill in all required fields.';
     return;
@@ -660,6 +660,8 @@ function submitForm() {
     firstName: firstName,
     lastName: lastName,
     address: address,
+    city: city,
+    state: state,
     phone: phone,
     email: email,
     reason: reason,
@@ -685,6 +687,8 @@ function submitForm() {
     document.getElementById('firstName').value = '';
     document.getElementById('lastName').value = '';
     document.getElementById('address').value = '';
+    document.getElementById('city').value = '';
+    document.getElementById('state').value = '';
     document.getElementById('phone').value = '';
     document.getElementById('email').value = '';
     document.getElementById('reason').value = '';
@@ -697,19 +701,4 @@ function submitForm() {
 }
 
 function toggleFaq(btn) {
-  var answer = btn.nextElementSibling;
-  var isOpen = answer.classList.contains('open');
-  document.querySelectorAll('.faq-answer').forEach(function(a) {
-    a.classList.remove('open');
-  });
-  document.querySelectorAll('.faq-question').forEach(function(b) {
-    b.classList.remove('active');
-  });
-  if (!isOpen) {
-    answer.classList.add('open');
-    btn.classList.add('active');
-  }
-}
-</script>
-</body>
-</html>
+  var answer
