@@ -389,8 +389,7 @@ footer{background:#060f1a;padding:1.75rem 3rem;display:flex;align-items:center;j
      Google Apps Script Web App URL to enable Sheets logging.
      ============================================================ -->
 <script>
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNPPOFX9HVOomIAeaOJrDeeh2lTjuoKGqA7hJNenQcASL9LdnVr5JIgTc00leRAlAuTw/exec';
-
+const GOOGLE_SCRIPT_URL = https://script.google.com/macros/s/AKfycbyxIR3JG6WrhRY2KXKU_wvCyE6v7zk5U1EaJXbQ4Il7oO7eFI8auzgY4hJPUfLo4xLw8w/exec
 function submitForm() {
   const msgEl = document.getElementById('formMessage');
   const btn = document.querySelector('.submit-btn');
@@ -414,56 +413,55 @@ function submitForm() {
   msgEl.className = 'form-msg';
   msgEl.textContent = '';
 
-  // Use URL encoded form data instead of JSON to avoid CORS
-  const formData = new FormData();
-  formData.append('timestamp', new Date().toLocaleString('en-US', {timeZone:'America/New_York'}));
-  formData.append('firstName', firstName);
-  formData.append('lastName', lastName);
-  formData.append('address', address);
-  formData.append('phone', phone);
-  formData.append('email', email);
-  formData.append('reason', reason);
-  formData.append('condition', condition);
-
-  const params = new URLSearchParams({
-    timestamp: new Date().toLocaleString('en-US', {timeZone:'America/New_York'}),
-    firstName, lastName, address, phone, email, reason, condition
-  });
-
-  // Use a hidden iframe to submit — bypasses CORS completely
+  // Create hidden iframe to bypass CORS
+  const iframeName = 'hidden_iframe_' + Date.now();
   const iframe = document.createElement('iframe');
-  iframe.name = 'hidden_iframe';
+  iframe.name = iframeName;
   iframe.style.display = 'none';
   document.body.appendChild(iframe);
 
-  const form = document.createElement('form');
-  form.method = 'POST';
-  form.action = GOOGLE_SCRIPT_URL;
-  form.target = 'hidden_iframe';
+  // Create and submit hidden form
+  const hiddenForm = document.createElement('form');
+  hiddenForm.method = 'POST';
+  hiddenForm.action = GOOGLE_SCRIPT_URL;
+  hiddenForm.target = iframeName;
 
-  const fields = {timestamp: new Date().toLocaleString('en-US',{timeZone:'America/New_York'}), firstName, lastName, address, phone, email, reason, condition};
+  const fields = {
+    timestamp: new Date().toLocaleString('en-US', {timeZone:'America/New_York'}),
+    firstName, lastName, address, phone, email, reason, condition
+  };
 
   Object.keys(fields).forEach(key => {
     const input = document.createElement('input');
     input.type = 'hidden';
     input.name = key;
     input.value = fields[key];
-    form.appendChild(input);
+    hiddenForm.appendChild(input);
   });
 
-  document.body.appendChild(form);
-  form.submit();
+  document.body.appendChild(hiddenForm);
+  hiddenForm.submit();
 
-  // Show success after short delay
+  // Show success and reset form fields manually
   setTimeout(() => {
     msgEl.className = 'form-msg success';
     msgEl.textContent = '✅ Thank you! We\'ll be in touch within 24 hours with your cash offer.';
     btn.disabled = false;
     btn.textContent = 'Get My Free Cash Offer →';
-    document.getElementById('contactForm').reset();
-    document.body.removeChild(form);
+
+    // Reset fields manually (fixes the reset error)
+    document.getElementById('firstName').value = '';
+    document.getElementById('lastName').value = '';
+    document.getElementById('address').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('reason').value = '';
+    document.getElementById('condition').value = '';
+
+    // Clean up
+    document.body.removeChild(hiddenForm);
     document.body.removeChild(iframe);
-  }, 2000);
+  }, 2500);
 }
 </script>
 <!-- ============================================================
